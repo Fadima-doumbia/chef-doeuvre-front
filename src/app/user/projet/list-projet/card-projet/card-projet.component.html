@@ -1,0 +1,20 @@
+
+
+<div class="container">
+  <div class="entete">
+    <h2>Projet: <span>{{ name }}</span></h2>
+  </div>
+  <hr>
+  <div class="content">
+    <h4>Entrepreneur: <span>{{ entrepreneur }}</span></h4>
+    <h4>Date de Début: <span>{{ dateD }}</span></h4>
+    <h4>Besoin: <span>{{ besoin }}</span></h4>
+    <h4>Description: <span>{{ description }}</span></h4>
+  </div>
+  <a [routerLink]="[id]" class="card-link">Details</a>
+  <div class="buttons">
+    <button type="button" class="bouton">Contacter</button>
+    <button type="button" class="bouton">Retour</button>
+    <button type="button" class="bouton">Supprimer</button>
+  </div>
+</div>

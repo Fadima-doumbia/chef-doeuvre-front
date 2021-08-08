@@ -1,0 +1,11 @@
+<div class="list-feature" >
+  <app-card-projet
+    *ngFor="let projet of listProject"
+    [name]="projet.name"
+    [description]="projet.description"
+    [entrepreneur]="projet.entrepreneur"
+    [besoin]="projet.besoin"
+    [dateD]="projet.dateD"
+    [id]="projet._id">
+  </app-card-projet>
+</div>

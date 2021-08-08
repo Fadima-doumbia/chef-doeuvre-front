@@ -1,0 +1,124 @@
+<div class="login-form text-center">
+  <main class="form-signin">
+    <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
+      <h1>Créer ton compte !</h1>
+
+      <div class="form-floating">
+        <input
+          type="email"
+          [ngClass]="{
+            'is-invalid':
+              (registerForm.get('email')?.dirty ||
+                registerForm.get('email')?.touched) &&
+              registerForm.get('email')?.invalid
+          }"
+          class="form-control"
+          id="floatingInput"
+          placeholder=""
+          formControlName="email"
+        />
+        <label for="floatingInput">Adresse email</label>
+      </div>
+      <div class="form-floating">
+        <input
+          type="text"
+          class="form-control"
+          id="floatingInput"
+          placeholder=""
+          formControlName="username"
+        />
+        <label for="floatingInput">username</label>
+      </div>
+      <!-- <div class="form-floating">
+        <input
+          type="text"
+          class="form-control"
+          id="floatingInput"
+          placeholder=""
+          formControlName="lastName"
+        />
+        <label for="floatingInput">Nom</label>
+      </div> -->
+      <!-- <div class="form-floating">
+        <input
+          type="text"
+          class="form-control"
+          id="floatingInput"
+          placeholder=""
+          formControlName="username"
+        />
+        <label for="floatingInput">Pseudo</label>
+      </div> -->
+      <!-- <div class="form-floating">
+        <input
+          type="tel"
+          class="form-control"
+          id="floatingInput"
+          placeholder=""
+          formControlName="telephone"
+        />
+        <label for="floatingInput">Telephone</label>
+      </div> -->
+      <!-- <div class="form-floating">
+        <input
+          type="text"
+          class="form-control"
+          id="floatingInput"
+          placeholder=""
+          formControlName="presentation"
+        />
+        <label for="floatingInput">Presentation</label>
+      </div> -->
+      <!-- <div class="form-floating">
+        <input
+          type="text"
+          class="form-control"
+          id="floatingInput"
+          placeholder=""
+          formControlName="pays"
+        />
+        <label for="floatingInput">Pays</label>
+      </div> -->
+      <div class="form-floating">
+        <input type="text"
+                class="form-control"
+                id="floatingInput"
+                placeholder=""
+                formControlName="role">
+        <label for="floatingInput">Role</label>
+      </div>
+      <div class="form-floating">
+        <input
+          type="password"
+          class="form-control"
+          [ngClass]="{
+            'is-invalid':
+              (registerForm.get('password')?.dirty ||
+                registerForm.get('password')?.touched) &&
+              registerForm.get('password')?.invalid
+          }"
+          id="floatingInput"
+          placeholder=""
+          formControlName="password"
+        />
+        <label for="floatingInput">Mot de passe</label>
+      </div>
+      <button
+        class="w-100 btn btn-lg btn-primary"
+        type="submit"
+        [disabled]="registerForm.invalid"
+      >
+        Création
+      </button>
+    </form>
+    <div>
+      <hr>
+      <p>Dejà inscrit ?
+        <span>
+          <a href="http://" routerLink="/login" routerLinkActive="active">Connectez-vous
+          </a>
+        </span>
+      </p>
+    </div>
+  </main>
+</div>

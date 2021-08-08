@@ -1,0 +1,117 @@
+<!-- <div class="login-form text-center">
+  <main class="form-signin">
+    <form (ngSubmit)="onSubmit()" [formGroup]="projetForm">
+      <h1>Créer Votre projet !</h1>
+
+      <div class="form-floating">
+        <input type="number"
+                class="form-control"
+                id="floatingInput"
+                placeholder=""
+                formControlName="id">
+        <label for="floatingInput">id</label>
+      </div>
+
+      <div class="form-floating">
+        <input type="text"
+                class="form-control"
+                id="floatingInput"
+                placeholder=""
+                formControlName="name">
+        <label for="floatingInput">nom</label>
+      </div>
+      <div class="form-floating">
+        <input type="text"
+                class="form-control"
+                id="floatingInput"
+                placeholder=""
+                formControlName="description">
+        <label for="floatingInput">description</label>
+      </div>
+      <div class="form-floating">
+        <input type="text"
+                class="form-control"
+                id="floatingInput"
+                placeholder=""
+                formControlName="entrepreneur">
+        <label for="floatingInput">auteur</label>
+      </div>
+      <div class="form-floating">
+        <input type="text"
+                class="form-control"
+                id="floatingInput"
+                placeholder=""
+                formControlName="besoin">
+        <label for="floatingInput">besoin</label>
+      </div>
+
+      <div class="form-floating">
+        <input type="date"
+                class="form-control"
+                id="floatingInput"
+                placeholder=""
+                formControlName="dateD">
+        <label for="floatingInput">Date</label>
+      </div>
+
+      <div class="button">
+        <button class="w-100 btn btn-lg btn-primary"
+        type="submit"
+        [disabled]="projetForm.invalid">Création</button>
+        <button class="w-100 btn btn-lg btn-primary annuler"
+                type="submit" onclick="history.back(-1)">Annuler</button>
+      </div>
+    </form>
+    <hr>
+  </main>
+</div> -->
+
+<h3>Nouveau projet</h3>
+<form class="container" (ngSubmit)="onSubmit()" [formGroup]="projetForm">
+  <!-- ******************************entete projet******************************************************* -->
+  <div class="mb-3 row">
+    <label for="inputPassword" class="col-sm-2 col-form-label">Projet:</label>
+    <div class="col-sm-3">
+      <input type="text" class="form-control" id="inputText" formControlName="name">
+    </div>
+    <label for="inputPassword" class="col-sm-2 col-form-label">Secteur Activité:</label>
+    <!-- <div class="col-sm-3">
+      <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example"
+        formControlName="secteurAct">
+        <option selected>Informatique</option>
+        <option value="1">Agriculture</option>
+        <option value="2">Elevage</option>
+        <option value="3">Pisciculture</option>
+      </select>
+    </div> -->
+    <label for="inputText" class="col-sm-2 col-form-label">Date:</label>
+    <div class="col-sm-3">
+      <input type="date" class="form-control" id="inputText"  formControlName="dateD">
+    </div>
+  </div>
+  <!-- ******************************texetera************************************************************* -->
+
+  <div class="form-floating">
+    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+      formControlName="description">
+      hello
+    </textarea>
+    <label for="floatingTextarea2">Présentation</label>
+  </div>
+  <div class="form-floating">
+    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" formControlName="besoin">
+      hello
+    </textarea>
+    <label for="floatingTextarea2">Besoin</label>
+  </div>
+  <!-- ******************************Ajouter un nouveau projet**************************************************** -->
+  <div class="buttons">
+    <button class="button"
+    type="submit"
+    [disabled]="projetForm.invalid">Création</button>
+    <button class="button"
+            type="submit" onclick="history.back(-1)">Annuler</button>
+  </div>
+  <!-- ******************************radios buttun******************************************************** -->
+</form>
+

@@ -1,0 +1,86 @@
+<p>admin works!</p>
+<div class="admin row">
+  <div class="nouveau-projet col-sm-4 md-8 lg-12">
+    <h4>Ajouter un nouveau admin</h4>
+    <button type="button" class="btn btn-outline-secondary mr-2 buttonAdd" routerLink="/add-admin"
+      routerLinkActive="active">
+      <div class="buttonAdd">
+        <i class="fas fa-plus-circle"></i>
+      </div>
+    </button>
+  </div>
+  <div class="nouveau-projet col-sm-4 md-8 lg-12">
+    <h4>Supprimer un utilisateur ou un projet</h4>
+    <button type="button" class="btn btn-outline-secondary mr-2 buttonAdd" routerLink="/reseau"
+      routerLinkActive="active">
+      <div class="buttonAdd">
+        <i class="fas fa-plus-circle"></i>
+      </div>
+    </button>
+  </div>
+</div>
+<!--
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Nom</th>
+      <th scope="col">Prenom</th>
+      <th scope="col">Mail</th>
+      <th scope="col">Role</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Mark</td>
+      <td>Mode</td>
+      <td>12/05/2013 - 24/10/2021</td>
+      <td>Projet Finis</td>
+      <td class="action">
+          <i class="far fa-edit"></i>
+          <i class="far fa-trash-alt"></i>
+      </td>
+    </tr>
+    <tr>
+      <td>Mark</td>
+      <td>Recyclage</td>
+      <td>12/05/2013 - 24/10/2021</td>
+      <td>Projet Abandonné</td>
+      <td class="action">
+          <i class="far fa-edit"></i>
+          <i class="far fa-trash-alt"></i>
+      </td>
+    </tr>
+  </tbody>
+</table> -->
+
+<table>
+  <!-- <caption>Statement Summary</caption> -->
+  <thead>
+    <tr>
+      <th scope="col">Nom</th>
+      <th scope="col">Prenom</th>
+      <th scope="col">Mail</th>
+      <th scope="col">Role</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td data-label="Nom">Dado</td>
+      <td data-label="Prenom">Bah</td>
+      <td data-label="Mail">dado@mail.com</td>
+      <td data-label="Role">Admin</td>
+      <td data-label="Actions">
+        <div class="display">
+          <button type="button" class="btn btn-outline-secondary mr-2" placement="top" ngbTooltip="Supprimer le projet">
+            <i class="far fa-edit"></i>
+          </button>
+          <button type="button" class="btn btn-outline-secondary mr-2" placement="top" ngbTooltip="Supprimer le projet">
+            <i class="far fa-trash-alt"></i>
+          </button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

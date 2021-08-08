@@ -1,0 +1,49 @@
+<div class="prev">
+  <button type="button" class="btnbtn-outline-primary" routerLink="/home" routerLinkActive="active">
+    <i class="fas fa-arrow-circle-left"></i> Profil</button>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <!-- <th scope="col">#</th> -->
+      <th scope="col">Projet</th>
+      <th scope="col">Secteur Activité</th>
+      <th scope="col">Debut</th>
+      <th scope="col">Fin</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <!-- <th scope="row">1</th> -->
+      <td>Mark</td>
+      <td>Mode</td>
+      <td>12/05/2013 - 24/10/2021</td>
+      <td>Projet Finis</td>
+      <td>
+        <button type="button" class="btn btn-outline-secondary mr-2" placement="top" ngbTooltip="Supprimer le projet">
+          <i class="far fa-trash-alt"></i>
+        </button>
+      </td>
+    </tr>
+    <tr>
+      <!-- <th scope="row">1</th> -->
+      <td>Mark</td>
+      <td>Recyclage</td>
+      <td>12/05/2013 - 24/10/2021</td>
+      <td>Projet Abandonné</td>
+      <td>
+        <button type="button" class="btn btn-outline-secondary mr-2" placement="top" ngbTooltip="Supprimer le projet">
+          <i class="far fa-trash-alt"></i>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div class="d-grid gap-2 col-6 mx-auto delete-all">
+  <button type="button" class="btnbtn-outline-primary" routerLink="/historique" routerLinkActive="active">Vider</button>
+</div>
+
+
+

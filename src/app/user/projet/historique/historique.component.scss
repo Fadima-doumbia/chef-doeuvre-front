@@ -1,0 +1,32 @@
+.prev{
+  // padding: 10px;
+  // width: 100%;
+  // height: auto;
+  button{
+    color: #3c5aa6;
+    border: #f27e63 1px solid;
+    padding: 5px;
+    margin: auto;
+    &:hover{
+      background-color: #979690;
+    }
+  }
+}
+.table{
+  width: 90%;
+  margin: auto;
+  color: #3c5aa6;
+}
+.delete-all{
+  margin: 10px;
+  button{
+    color: #3c5aa6;
+    border: #f27e63 1px solid;
+    padding: 5px;
+    margin: auto;
+
+    &:hover{
+      background-color: #979690;
+    }
+  }
+}

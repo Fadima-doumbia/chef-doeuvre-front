@@ -1,0 +1,66 @@
+<div class="container" (ngSubmit)="onSubmit()">
+  <!-- ******************************entete projet******************************************************* -->
+  <div class="mb-3 row">
+    <label for="inputPassword" class="col-sm-2 col-form-label">Projet:</label>
+    <div class="col-sm-3">
+      <p class="secteur_act form-control">Nom projet</p>
+    </div>
+    <label for="inputPassword" class="col-sm-2 col-form-label">Secteur Activité:</label>
+    <div class="col-sm-3">
+      <p class="secteur_act form-control">Secteur Activité</p>
+    </div>
+    <label for="inputText" class="col-sm-2 col-form-label" formControlName="dateD">Date:</label>
+    <div class="col-sm-3">
+      <p class="secteur_act form-control">Date</p>
+    </div>
+  </div>
+  <!-- ******************************texetera************************************************************* -->
+
+  <div class="form-floating">
+    <p class="presentation" placeholder="presentation" id="floatingTextarea2"
+      formControlName="description">
+      Presentation
+  </p>
+    <label for="floatingTextarea2">Inserez ici</label>
+  </div>
+  <div class="form-floating">
+    <p class="presentation" placeholder="presentation" id="floatingTextarea2"
+      formControlName="description">
+      Besoin
+  </p>
+    <label for="floatingTextarea2">Inserez ici</label>
+  </div>
+  <!-- ******************************radios buttun******************************************************** -->
+
+  <div class="container-radio">
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked>
+      <label class="form-check-label" for="inlineRadio1">Projet En Cour</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+      <label class="form-check-label" for="inlineRadio2">Projet Finis</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+      <label class="form-check-label" for="inlineRadio3">Abandonner Le Projet</label>
+    </div>
+    <!-- <button class="w-100 btn btn-lg btn-primary"
+                type="submit"
+                >Création</button> -->
+  </div>
+</div>
+<!-- ******************************Ajouter un nouveau projet**************************************************** -->
+<div class="nouveau-projet">
+  <h4>Ajouter un nouveau projet</h4>
+  <button type="button" class="btn btn-outline-secondary mr-2 buttonAdd" routerLink="/add-projet"
+    routerLinkActive="active">
+    <div class="buttonAdd">
+      <i class="fas fa-plus-circle"></i>
+    </div>
+  </button>
+</div>
+<div class="d-grid gap-2 col-6 mx-auto history">
+  <button type="button" class="btnbtn-outline-primary" routerLink="/historique" routerLinkActive="active">Historique</button>
+</div>
+<app-list-projet [listProject]="dataProject"></app-list-projet>
