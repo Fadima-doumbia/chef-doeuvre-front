@@ -1,88 +1,44 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Projet } from '../models/projet.model';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProjetService {
-  projets = [
-    {
-      id : 1,
-      name : "nomProjet",
-      description : "c'est un projet",
-      entrepreneur : "fadimou",
-      besoin : "materiel",
-      dateD: "01-04-2021"
-    },
-    {
-      id : 2,
-      name : "nomProjet2",
-      description : "c'est un projet2",
-      entrepreneur : "fadimou2",
-      besoin : "materiel2",
-      dateD: "01-05-2021"
-    },
-    {
-      id : 3,
-      name : "nomProjet3",
-      description : "c'est un projet3",
-      entrepreneur : "fadimou3",
-      besoin : "materiel3",
-      dateD: "01-06-2021"
-    }
-  ]
+  arrayProject?:[];
+  private baseUrl: string = "http://localhost:8080/api/auth/projets"
 
-  private baseUrl: string = "http://localhost:8080/api/projets"
-  projectSubject = new Subject<any[]>();
-  projetObject$ = new Subject<Projet[]>();
+  constructor(
+    private httpClient: HttpClient,
+    private authService: AuthService,
+    ) { }
 
-  constructor(private httpClient: HttpClient) { }
-
-  addProject(){
-    const newProject = {
-      id : this.projets.length + 1,
-      name : "nexProjectName",
-      description : "new description projet ",
-      entrepreneur : "User",
-      besoin : "new besoin",
-      dateD: "new date"
-    }
-    this.projets.push(newProject);
-    console.log(this.projets);
-    this.emitDataProject();
+  addProject(newProjet: Projet){
+    // this.projets.push(newProjet);
+    // console.log(this.projets);
+    // this.emitDataProject();
+    const id = this.authService.getUserIdToken();
+    return this.httpClient.post(`http://localhost:8080/api/auth/projets/${id}`, newProjet)
   }
 
   deletePost(id : number){
     return this.httpClient.delete(`${this.baseUrl}/${id}`)
   }
 
-  emitDataProject(){
-    this.projectSubject.next(this.projets.slice());
-    console.log('emit data');
-  }
+  // emitDataProject(){
+  //   this.projectSubject.next(this.projets.slice());
+  //   console.log('emit data');
+  // }
 
-  getProject() {
-    this.httpClient.get(`${this.baseUrl}`).subscribe(
-      (listProj: any) => {
-        this.projetObject$.next(listProj);
-      },
-      err => {
-        console.error(err)
-      },
-      () => console.log('fini')
-    )
+  getProject(): Observable<Array<Projet>> {
+    return this.httpClient.get<Array<Projet>>(`${this.baseUrl}`);
   }
 
   postProject(newProjet: Projet){
-    const body=JSON.stringify(newProjet);
-    const formData=new FormData();
-    for(const [key, value] of Object.entries(newProjet)){
-      formData.append(key,value)
-    }
-    console.log(body);
-    return this.httpClient.post(this.baseUrl, newProjet)
+    return this.httpClient.post(`http://localhost:8080/api/auth/projets`, newProjet)
   }
 }
 

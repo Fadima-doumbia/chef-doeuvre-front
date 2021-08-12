@@ -1,0 +1,25 @@
+.list-projets{
+    height: auto;
+    border: 1px solid salmon;
+    background-color: rgb(238, 234, 234);
+    border-radius: 10px;
+    color: #3c5aa6;
+    margin-bottom: 1rem;
+    .content{
+      span{
+        font-size: medium;
+      }
+    }
+    .buttons{
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      button{
+        color: #3c5aa6;
+        border: #f27e63 1px solid;
+        padding: 5px;
+        margin: auto;
+        border-radius: 5px;
+      }
+    }
+  }

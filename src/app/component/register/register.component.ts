@@ -16,13 +16,8 @@ export class RegisterComponent implements OnInit {
     role : new FormControl('', Validators.required),
     password: new FormControl('', [
       Validators.required,
-      Validators.minLength(8),
+      Validators.minLength(4),
     ])
-    // firstname: new FormControl(''),
-    // lastname: new FormControl(''),
-    // telephone: new FormControl(''),
-    // presentation: new FormControl(''),
-    // pays: new FormControl(''),
   });
 
   constructor(private authService: AuthService, private router: Router) {}
@@ -39,6 +34,7 @@ export class RegisterComponent implements OnInit {
       },
       (error) => {
         console.log('faild');
+        console.log(error);
       }
     );
   }

@@ -74,16 +74,6 @@
     <div class="col-sm-3">
       <input type="text" class="form-control" id="inputText" formControlName="name">
     </div>
-    <label for="inputPassword" class="col-sm-2 col-form-label">Secteur Activité:</label>
-    <!-- <div class="col-sm-3">
-      <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example"
-        formControlName="secteurAct">
-        <option selected>Informatique</option>
-        <option value="1">Agriculture</option>
-        <option value="2">Elevage</option>
-        <option value="3">Pisciculture</option>
-      </select>
-    </div> -->
     <label for="inputText" class="col-sm-2 col-form-label">Date:</label>
     <div class="col-sm-3">
       <input type="date" class="form-control" id="inputText"  formControlName="dateD">
@@ -107,8 +97,7 @@
   <!-- ******************************Ajouter un nouveau projet**************************************************** -->
   <div class="buttons">
     <button class="button"
-    type="submit"
-    [disabled]="projetForm.invalid">Création</button>
+    type="submit">Création</button>
     <button class="button"
             type="submit" onclick="history.back(-1)">Annuler</button>
   </div>

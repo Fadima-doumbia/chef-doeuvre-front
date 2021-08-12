@@ -1,27 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
 import { Projet } from '../../models/projet.model';
 import { ProjetService } from '../../services/projet.service';
 
 @Component({
-  selector: 'app-add-projet',
-  templateUrl: './add-projet.component.html',
-  styleUrls: ['./add-projet.component.scss']
+  selector: 'app-projet',
+  templateUrl: './projet.component.html',
+  styleUrls: ['./projet.component.scss']
 })
-export class AddProjetComponent implements OnInit {
+export class ProjetComponent implements OnInit {
   dataProject? : Projet[];
   projectSubcription? : Subscription;
 
   selectFile:any =null;
 
   constructor(
-    private projetService: ProjetService,
-    private router : Router
-  ) {}
+    private authService: AuthService,
+    private projetService: ProjetService
+    ) {}
 
-  projetForm = new FormGroup({//mon objet de declaration des champs de mon formulaire
+  projectForm = new FormGroup({//mon objet de declaration des champs de mon formulaire
       id : new FormControl(''),
       name : new FormControl(''),
       description : new FormControl(''),
@@ -30,15 +30,14 @@ export class AddProjetComponent implements OnInit {
       dateD: new FormControl("")
   });
 
-
   ngOnInit(): void {
-    this.projectSubcription = this.projetService.projetObject$.subscribe(
-      (listProject: Projet[]) => {
-        console.log(listProject);
-        this.dataProject = [...listProject];
+    this.projectSubcription = this.projetService.getProject()
+    .subscribe((listProject: Array<Projet>) => {
+        this.dataProject = listProject;
       }
     )
-    this.projetService.getProject()
+    this.projetService.getProject();
+    console.log(this.projetService.getProject());
   }
 
   ngOnDestroy(){
@@ -52,13 +51,12 @@ export class AddProjetComponent implements OnInit {
   }
 
   onSubmit() {//fonction bouton de validation et d'envoi des infos
-    const formValues = this.projetForm?.value;
+    const formValues = this.projectForm?.value;
     console.log(formValues);//recuperer l'objet
     this.projetService.postProject(formValues).subscribe(
       (project: Projet) => {
         console.log(project);
         this.dataProject?.push(project);
-        this.router.navigate(['/projet']);//redirect
       }
     )
     formValues["photo"] = this.selectFile;

@@ -41,6 +41,10 @@
     margin-bottom: 1rem;
   }
 }
+
+.buttons{
+  margin: 1rem;
+}
 @media only screen and (max-width: 750px) and (min-width:480px)  {
   .col-sm-3 {
       flex: 0 0 auto;

@@ -5,4 +5,5 @@ export class Projet{
   entrepreneur? : string;
   besoin? : string;
   dateD? : Date ;
+  userId? : number;
 }
