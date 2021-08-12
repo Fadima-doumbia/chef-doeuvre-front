@@ -50,6 +50,17 @@ export class ProjetComponent implements OnInit {
    // console.log(this.selectFile);
   }
 
+  updateProj() {//fonction bouton de validation et d'envoi des infos
+    const formValues = this.projectForm?.value;
+    console.log(formValues);//recuperer l'objet
+    this.projetService.updateProjet(formValues).subscribe(
+      (project: Projet) => {
+        console.log(project);
+        this.dataProject?.push(project);
+      }
+    )
+  }
+
   onSubmit() {//fonction bouton de validation et d'envoi des infos
     const formValues = this.projectForm?.value;
     console.log(formValues);//recuperer l'objet

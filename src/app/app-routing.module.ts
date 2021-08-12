@@ -13,6 +13,7 @@ import { ProjetComponent } from './component/projet/projet.component';
 import { RegisterComponent } from './component/register/register.component';
 import { ReseauComponent } from './component/reseau/reseau.component';
 import { EditProfilComponent } from './component/edit-profil/edit-profil.component';
+import { EditProjetComponent } from './component/projet/edit-projet/edit-projet.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent},
@@ -23,6 +24,7 @@ const routes: Routes = [
     { path: 'projet',  component: ProjetComponent},
     { path: 'historique',  component: HistoriqueComponent},
     { path: 'add-projet',  component: AddProjetComponent},
+    { path: 'edit-projet/:id',  component: EditProjetComponent},
     { path: 'home-admin',  component: HomeAdminComponent},
     { path: 'add-admin',  component: AddAdminComponent},
     { path: 'edit-profil',  component: EditProfilComponent},

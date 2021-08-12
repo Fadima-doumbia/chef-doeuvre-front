@@ -49,18 +49,7 @@ export class AddProjetComponent implements OnInit {
    // console.log(this.selectFile);
   }
 
-  onSubmit() {//fonction bouton de validation et d'envoi des infos
-    // const formValues = this.projetForm?.value;
-    // console.log(formValues);//recuperer l'objet
-    // this.projetService.postProject(formValues).subscribe(
-    //   (project: Projet) => {
-    //     console.log(project);
-    //     this.dataProject?.push(project);
-    //     this.router.navigate(['/projet']);//redirect
-    //   }
-    // )
-    // formValues["photo"] = this.selectFile;
-
+  onSubmit() {
     const formValues:any = this.projetForm?.value;
     console.log(formValues);
     this.projetService.addProject(formValues).subscribe(

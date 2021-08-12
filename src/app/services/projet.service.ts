@@ -27,14 +27,17 @@ export class ProjetService {
   deletePost(id : number){
     return this.httpClient.delete(`${this.baseUrl}/${id}`)
   }
-
-  // emitDataProject(){
-  //   this.projectSubject.next(this.projets.slice());
-  //   console.log('emit data');
-  // }
+  
+  getById(id: number) {
+    return this.httpClient.get<Projet>(`${this.baseUrl}/${id}`);
+  }
 
   getProject(): Observable<Array<Projet>> {
     return this.httpClient.get<Array<Projet>>(`${this.baseUrl}`);
+  }
+
+  updateProjet(updateProjet: Projet) {
+    return this.httpClient.put(`${this.baseUrl}`, updateProjet);
   }
 
   postProject(newProjet: Projet){

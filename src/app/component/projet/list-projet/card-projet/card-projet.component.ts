@@ -1,4 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Projet } from 'src/app/models/projet.model';
+import { ProjetService } from 'src/app/services/projet.service';
+import { ProjetComponent } from '../../projet.component';
 
 @Component({
   selector: 'app-card-projet',
@@ -6,15 +10,13 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./card-projet.component.scss']
 })
 export class CardProjetComponent implements OnInit {
-  @Input() name? : string;
-  @Input() description? : string;
-  @Input() id? : string;
-  @Input() entrepreneur? : string;
-  @Input() besoin? : string;
-  @Input() dateD? : Date;
-  constructor() { }
+  @Input() projet?: Projet
+  constructor(
+
+  ) { }
 
   ngOnInit(): void {
+
   }
 
 }
