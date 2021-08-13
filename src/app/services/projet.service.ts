@@ -15,6 +15,7 @@ export class ProjetService {
     private httpClient: HttpClient,
     private authService: AuthService,
     ) { }
+//********************************************************************************************************************* */
 
   addProject(newProjet: Projet){
     // this.projets.push(newProjet);
@@ -23,22 +24,27 @@ export class ProjetService {
     const id = this.authService.getUserIdToken();
     return this.httpClient.post(`http://localhost:8080/api/auth/projets/${id}`, newProjet)
   }
+//********************************************************************************************************************* */
 
   deletePost(id : number){
     return this.httpClient.delete(`${this.baseUrl}/${id}`)
   }
-  
+//********************************************************************************************************************* */
+
   getById(id: number) {
     return this.httpClient.get<Projet>(`${this.baseUrl}/${id}`);
   }
+//********************************************************************************************************************* */
 
   getProject(): Observable<Array<Projet>> {
     return this.httpClient.get<Array<Projet>>(`${this.baseUrl}`);
   }
+//********************************************************************************************************************* */
 
   updateProjet(updateProjet: Projet) {
     return this.httpClient.put(`${this.baseUrl}`, updateProjet);
   }
+//********************************************************************************************************************* */
 
   postProject(newProjet: Projet){
     return this.httpClient.post(`http://localhost:8080/api/auth/projets`, newProjet)

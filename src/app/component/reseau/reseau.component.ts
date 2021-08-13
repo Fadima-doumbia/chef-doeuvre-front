@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Projet } from 'src/app/models/projet.model';
 
 @Component({
   selector: 'app-reseau',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reseau.component.scss']
 })
 export class ReseauComponent implements OnInit {
-
+  dataProject? : Projet[];
   constructor() { }
 
   ngOnInit(): void {

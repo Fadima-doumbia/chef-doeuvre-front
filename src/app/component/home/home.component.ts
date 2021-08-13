@@ -18,8 +18,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.authService.getUserIdToken();
+    console.log(id)
     if(id){
-        this.userService.getById(1).subscribe((user: User) => {
+        this.userService.getById(id).subscribe((user: User) => {
           this.user = user
         });
     }
