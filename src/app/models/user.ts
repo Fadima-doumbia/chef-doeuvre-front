@@ -1,3 +1,4 @@
+import { Projet } from "./projet.model";
 import { Role } from "./role";
 
 export class User{
@@ -6,6 +7,7 @@ export class User{
   email?: string;
   password?: string;
   roles?: Array<Role>;
+  projects?: Array<Projet>;
   // presentation?: string;
   // pays?: string;
  //  image?: String;

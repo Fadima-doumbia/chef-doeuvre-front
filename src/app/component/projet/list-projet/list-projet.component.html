@@ -1,6 +1,6 @@
 <div class="list-feature" >
   <app-card-projet
-    *ngFor="let projet of listProject"
+    *ngFor="let projet of user?.projects"
     [projet]="projet">
   </app-card-projet>
 </div>

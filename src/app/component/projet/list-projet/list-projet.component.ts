@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Projet } from 'src/app/models/projet.model';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-list-projet',
@@ -7,7 +8,7 @@ import { Projet } from 'src/app/models/projet.model';
   styleUrls: ['./list-projet.component.scss']
 })
 export class ListProjetComponent implements OnInit {
-  @Input() listProject? : Projet[];
+  @Input() user? : User;
 
   constructor() { }
 

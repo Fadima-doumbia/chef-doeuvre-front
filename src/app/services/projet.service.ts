@@ -9,7 +9,7 @@ import { AuthService } from './auth.service';
 })
 export class ProjetService {
   arrayProject?:[];
-  private baseUrl: string = "http://localhost:8080/api/auth/projets"
+  private baseUrl: string = "http://localhost:8080/api"
 
   constructor(
     private httpClient: HttpClient,
@@ -22,32 +22,32 @@ export class ProjetService {
     // console.log(this.projets);
     // this.emitDataProject();
     const id = this.authService.getUserIdToken();
-    return this.httpClient.post(`http://localhost:8080/api/auth/projets/${id}`, newProjet)
+    return this.httpClient.post(`${this.baseUrl}/projets/${id}`, newProjet)
   }
 //********************************************************************************************************************* */
 
   deletePost(id : number){
-    return this.httpClient.delete(`${this.baseUrl}/${id}`)
+    return this.httpClient.delete(`${this.baseUrl}/projets/${id}`)
   }
 //********************************************************************************************************************* */
 
   getById(id: number) {
-    return this.httpClient.get<Projet>(`${this.baseUrl}/${id}`);
+    return this.httpClient.get<Projet>(`${this.baseUrl}/projets/${id}`);
   }
 //********************************************************************************************************************* */
 
   getProject(): Observable<Array<Projet>> {
-    return this.httpClient.get<Array<Projet>>(`${this.baseUrl}`);
+    return this.httpClient.get<Array<Projet>>(`${this.baseUrl}/projets`);
   }
 //********************************************************************************************************************* */
 
   updateProjet(updateProjet: Projet) {
-    return this.httpClient.put(`${this.baseUrl}`, updateProjet);
+    return this.httpClient.put(`${this.baseUrl}/projets`, updateProjet);
   }
 //********************************************************************************************************************* */
 
   postProject(newProjet: Projet){
-    return this.httpClient.post(`http://localhost:8080/api/auth/projets`, newProjet)
+    return this.httpClient.post(`${this.baseUrl}/projets`, newProjet)
   }
 }
 

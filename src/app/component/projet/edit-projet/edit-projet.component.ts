@@ -24,7 +24,8 @@ export class EditProjetComponent implements OnInit {
     entrepreneur : new FormControl('', Validators.required),
     besoin: new FormControl('', Validators.required),
     dateD: new FormControl(""),
-    id: new FormControl("")
+    id: new FormControl(""),
+    userId: new FormControl("")
 });
 
   ngOnInit(): void {
@@ -42,9 +43,16 @@ export class EditProjetComponent implements OnInit {
     this.projetService.updateProjet(formValues).subscribe(
       (project: Projet) => {
         console.log(project);
+        console.log('update reussit');
+        this.router.navigate(['/projet']);
       }
     )
   }
+
+  // ngOnDestroy() {
+  //   this.projetService?.unsubscribe();
+  //   console.log('Destroy component feature');
+  // }
 
   onSubmit() {
     const formValues:any = this.projetForm?.value;

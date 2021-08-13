@@ -15,7 +15,7 @@ export class AddAdminComponent implements OnInit {
     roles : new FormControl('', Validators.required),
     password: new FormControl('', [
       Validators.required,
-      Validators.minLength(8),
+      Validators.minLength(4),
     ])
   });
 
@@ -29,7 +29,7 @@ export class AddAdminComponent implements OnInit {
     this.authService.newAdmin(formValues).subscribe(
       (resp: any) => {
         console.log('reussit');
-        this.router.navigate(['/login']);
+        this.router.navigate(['/home-admin']);
       },
       (error) => {
         console.log('faild');

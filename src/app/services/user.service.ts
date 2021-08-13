@@ -7,22 +7,20 @@ import { UserRequest } from '../payload/user.request';
   providedIn: 'root'
 })
 export class UserService {
-
-
   private baseUrl: string = "http://localhost:8080/api/users"
 
   constructor(private httpClient: HttpClient) { }
-
-
 
   delete(id : number){
     return this.httpClient.delete(`${this.baseUrl}/${id}`)
   }
 
-
-
   getById(id: number) {
     return this.httpClient.get<UserRequest>(`${this.baseUrl}/${id}`);
+  }
+
+  getByUsername(username: string) {
+    return this.httpClient.get<UserRequest>(`${this.baseUrl}/${username}`);
   }
 
   create(newUser: UserRequest){
