@@ -1,6 +1,6 @@
 <div class="login-form text-center">
   <main class="form-signin">
-    <form class="container" (ngSubmit)="updateProj()" [formGroup]="projetForm">
+    <form class="container" (ngSubmit)="deleteProj()" [formGroup]="projetForm">
       <h1>Créer Votre projet !</h1>
 
       <div class="form-floating">
@@ -56,8 +56,8 @@
 
       <div class="buttons">
         <button class="button"
-        type="submit"
-        >Modifier</button>
+        type="submit" 
+        >Supprimer</button>
         <button class="button"
                 type="submit" onclick="history.back(-1)">Annuler</button>
       </div>

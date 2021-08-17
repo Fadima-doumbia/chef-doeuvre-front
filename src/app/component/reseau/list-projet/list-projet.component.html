@@ -1,0 +1,24 @@
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Besoin</th>
+        <th scope="col">Date de début</th>
+        <th scope="col">Entrepreneur</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let projet of dataProject">
+        <th scope="row">{{projet.id}}</th>
+        <td>{{projet.name}}</td>
+        <td>{{projet.description}}</td>
+        <td>{{projet.besoin}}</td>
+        <td>{{projet.dateD}}</td>
+        <td>{{projet.entrepreneur}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

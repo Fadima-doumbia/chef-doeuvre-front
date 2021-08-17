@@ -8,13 +8,22 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class ProjetService {
-  arrayProject?:[];
+
+  projectSubject = new Subject<Projet[]>();
   private baseUrl: string = "http://localhost:8080/api"
 
   constructor(
     private httpClient: HttpClient,
     private authService: AuthService,
     ) { }
+    // methode pour mettre a jour les projets
+    emitProjetSubject() {
+      this.getAllProject().subscribe(
+        (resp:any) => {
+          this.projectSubject.next(resp);
+        }
+      )
+    }
 //********************************************************************************************************************* */
 
   addProject(newProjet: Projet){
@@ -35,6 +44,12 @@ export class ProjetService {
     return this.httpClient.get<Projet>(`${this.baseUrl}/projets/${id}`);
   }
 //********************************************************************************************************************* */
+
+  getAllProject() {//j'ai mis un tableau card il me retourne un tableau d'objet
+    return this.httpClient.get<Projet[]>(`${this.baseUrl}/projets`);
+  }
+
+  //********************************************************************************************************************* */
 
   getProject(): Observable<Array<Projet>> {
     return this.httpClient.get<Array<Projet>>(`${this.baseUrl}/projets`);

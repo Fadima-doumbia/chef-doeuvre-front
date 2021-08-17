@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
+import { User } from '../models/user';
 import { UserRequest } from '../payload/user.request';
 
 @Injectable({
@@ -8,8 +9,17 @@ import { UserRequest } from '../payload/user.request';
 })
 export class UserService {
   private baseUrl: string = "http://localhost:8080/api/users"
+  userSubject = new Subject<User[]>();
 
   constructor(private httpClient: HttpClient) { }
+
+  emitUserSubject(){
+    this.getAllUser().subscribe(
+      (resp:any) => {
+        this.userSubject.next(resp);
+      }
+    )
+  }
 
   delete(id : number){
     return this.httpClient.delete(`${this.baseUrl}/${id}`)
@@ -17,6 +27,10 @@ export class UserService {
 
   getById(id: number) {
     return this.httpClient.get<UserRequest>(`${this.baseUrl}/${id}`);
+  }
+
+  getAllUser() {
+    return this.httpClient.get<UserRequest[]>(`${this.baseUrl}`);
   }
 
   getByUsername(username: string) {

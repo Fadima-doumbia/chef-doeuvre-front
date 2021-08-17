@@ -1,15 +1,14 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Projet } from 'src/app/models/projet.model';
-import { User } from 'src/app/models/user';
 import { ProjetService } from 'src/app/services/projet.service';
 
 @Component({
-  selector: 'app-reseau',
-  templateUrl: './reseau.component.html',
-  styleUrls: ['./reseau.component.scss']
+  selector: 'app-list-projet',
+  templateUrl: './list-projet.component.html',
+  styleUrls: ['./list-projet.component.scss']
 })
-export class ReseauComponent implements OnInit {
+export class ListProjetComponent implements OnInit {
   dataProject? : Projet[];
   projectSub?: Subscription;
 

@@ -12,11 +12,23 @@ import { ProjetComponent } from '../../projet.component';
 export class CardProjetComponent implements OnInit {
   @Input() projet?: Projet
   constructor(
-
+    private projetService: ProjetService,
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
 
   }
 
+  deleteProj(id:any) {
+    console.log(id);
+    this.projetService.deletePost(id).subscribe(
+      (project: Projet) => {
+        console.log(project);
+        console.log('delete reussit');
+        this.router.navigate(['/projet']);
+      }
+    )
+  }
 }

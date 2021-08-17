@@ -26,14 +26,39 @@
     margin: 10px 0;
   }
 }
-.history{
-  padding: 10px;
 
-  button{
+
+.projet{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  .list-projets{
+    height: auto;
+    min-height: 300px;
+    width: 30%;
+    border: 1px solid salmon;
+    background-color: rgb(238, 234, 234);
+    border-radius: 10px;
     color: #3c5aa6;
-    border: #f27e63 1px solid;
-    padding: 5px;
-    margin: auto;
+    margin: 1rem;
+    .content{
+      span{
+        font-size: medium;
+      }
+    }
+    .buttons{
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      // margin: 10px;
+      button{
+        color: #3c5aa6;
+        border: #f27e63 1px solid;
+        padding: 5px;
+        margin: 5px;
+        border-radius: 5px;
+      }
+    }
   }
 }
-

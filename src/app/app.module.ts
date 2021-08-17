@@ -27,6 +27,7 @@ import { CardUserComponent } from './user/list-user/card-user/card-user.componen
 import { AuthInterceptor } from './component/interceptor/auth.interceptor';
 import { LayoutComponent } from './component/layout/layout.component';
 import { EditProjetComponent } from './component/projet/edit-projet/edit-projet.component';
+import { DeleteProjetComponent } from './component/projet/delete-projet/delete-projet.component';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { EditProjetComponent } from './component/projet/edit-projet/edit-projet.
     UserComponent,
     ListUserComponent,
     CardUserComponent,
-    LayoutComponent
+    LayoutComponent,
+    DeleteProjetComponent
   ],
 
   imports: [

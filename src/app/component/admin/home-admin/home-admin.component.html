@@ -19,43 +19,8 @@
     </button>
   </div>
 </div>
-<!--
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Nom</th>
-      <th scope="col">Prenom</th>
-      <th scope="col">Mail</th>
-      <th scope="col">Role</th>
-      <th scope="col">Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Mark</td>
-      <td>Mode</td>
-      <td>12/05/2013 - 24/10/2021</td>
-      <td>Projet Finis</td>
-      <td class="action">
-          <i class="far fa-edit"></i>
-          <i class="far fa-trash-alt"></i>
-      </td>
-    </tr>
-    <tr>
-      <td>Mark</td>
-      <td>Recyclage</td>
-      <td>12/05/2013 - 24/10/2021</td>
-      <td>Projet Abandonné</td>
-      <td class="action">
-          <i class="far fa-edit"></i>
-          <i class="far fa-trash-alt"></i>
-      </td>
-    </tr>
-  </tbody>
-</table> -->
 
-<table>
-  <!-- <caption>Statement Summary</caption> -->
+<table >
   <thead>
     <tr>
       <th scope="col">Nom</th>
@@ -65,15 +30,16 @@
       <th scope="col">Actions</th>
     </tr>
   </thead>
-  <tbody>
+
+  <tbody *ngFor="let user of dataUser">
     <tr>
-      <td data-label="Nom">Dado</td>
-      <td data-label="Prenom">Bah</td>
-      <td data-label="Mail">dado@mail.com</td>
-      <td data-label="Role">Admin</td>
+      <td data-label="Nom">{{ user.username }} h</td>
+      <td data-label="Prenom">{{ user.email }} b</td>
+      <td data-label="Mail">{{ user.email }}</td>
+      <td data-label="Role" *ngFor="let role of user?.roles">{{ tolowerRole(role.name) }} </td>
       <td data-label="Actions">
         <div class="display">
-          <button type="button" class="btn btn-outline-secondary mr-2" placement="top" ngbTooltip="Supprimer le projet">
+          <button type="button" class="btn btn-outline-secondary mr-2" placement="top" ngbTooltip="Modifier le projet">
             <i class="far fa-edit"></i>
           </button>
           <button type="button" class="btn btn-outline-secondary mr-2" placement="top" ngbTooltip="Supprimer le projet">
@@ -84,3 +50,4 @@
     </tr>
   </tbody>
 </table>
+

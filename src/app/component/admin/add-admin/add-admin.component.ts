@@ -26,13 +26,14 @@ export class AddAdminComponent implements OnInit {
   onSubmit() {
     const formValues = this.adminForm?.value;
     console.log(formValues);
-    this.authService.newAdmin(formValues).subscribe(
+    this.authService.register(formValues).subscribe(
       (resp: any) => {
         console.log('reussit');
-        this.router.navigate(['/home-admin']);
+        this.router.navigate(['/login']);
       },
       (error) => {
         console.log('faild');
+        console.log(error);
       }
     );
   }

@@ -14,7 +14,7 @@
       <button type="button" class="bouton">Contacter</button>
       <button type="button" class="bouton">Retour</button>
       <button type="button" class="bouton" [routerLink]="['/edit-projet', projet?.id]">Modifier</button>
-      <button type="button" class="bouton">Supprimer</button>
+      <button type="button" class="bouton"  (click)="deleteProj(projet?.id)">Supprimer</button>
     </div>
   </div>
 <!-- edit-projet/:id -->

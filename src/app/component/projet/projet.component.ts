@@ -19,40 +19,30 @@ export class ProjetComponent implements OnInit {
 
   selectFile:any =null;
 
-  constructor(
+    constructor(
     private authService: AuthService,
     private projetService: ProjetService,
     private userService: UserService
-
     ) {}
 
-  projectForm = new FormGroup({//mon objet de declaration des champs de mon formulaire
+    projectForm = new FormGroup({//mon objet de declaration des champs de mon formulaire
       id : new FormControl(''),
       name : new FormControl(''),
       description : new FormControl(''),
       entrepreneur : new FormControl('', Validators.required),
       besoin: new FormControl('', Validators.required),
       dateD: new FormControl("")
-  });
-
-  ngOnInit(): void {
-    const id = this.authService.getCurrentUser();
-    this.projectSubcription = this.userService.getById(id)
-    .subscribe((user:User) => {
-        this.user = user;
-      }
-    )
+    });
 
 
 
-
-    // this.projectSubcription = this.projetService.getProject()
-    // .subscribe((listProject: Array<Projet>) => {
-    //     this.dataProject = listProject;
-    //   }
-    // )
-    // this.projetService.getProject();
-    // console.log(this.projetService.getProject());
+    ngOnInit(): void {
+      const id = this.authService.getCurrentUser();
+      this.projectSubcription = this.userService.getById(id)
+      .subscribe((user:User) => {
+          this.user = user;
+        }
+      )
   }
 
   ngOnDestroy(){
