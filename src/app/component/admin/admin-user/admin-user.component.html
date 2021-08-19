@@ -1,0 +1,56 @@
+<!-- <div class="container">
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">Nom</th>
+        <th scope="col">Prenom</th>
+        <th scope="col">Mail</th>
+        <th scope="col">Role</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+
+    <tbody *ngFor="let user of dataUser">
+      <tr>
+        <td data-label="Nom">{{ user.username }} h</td>
+        <td data-label="Prenom">{{ user.email }} b</td>
+        <td data-label="Mail">{{ user.email }}</td>
+        <td data-label="Role" *ngFor="let role of user?.roles">{{ tolowerRole(role.name) }} </td>
+        <td data-label="Actions">
+          <div class="display">
+            <button type="button" class="btn btn-outline-secondary mr-2" placement="top" ngbTooltip="Modifier le projet">
+              <i class="far fa-edit"></i>
+            </button>
+            <button type="button" class="btn btn-outline-secondary mr-2" placement="top" ngbTooltip="Supprimer le projet">
+              <i class="far fa-trash-alt"></i>
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table> -->
+
+  <div class="projet">
+    <div class="list-projets" *ngFor="let user of dataUser">
+      <div class="container conteneur">
+        <div class="entete">
+          <h2>Pseudo: <span>{{ user.username }}</span></h2>
+        </div>
+        <hr>
+        <div class="content">
+          <h4>Email: <span>{{ user.email }}</span></h4>
+          <h4 *ngFor="let role of user?.roles">Role: <span>{{ tolowerRole(role.name) }}</span></h4>
+        </div>
+        <div class="buttons">
+          <button type="button" class="bouton">Contacter</button>
+          <!-- <button type="button" class="bouton" >Modifier</button> -->
+          <button type="button" class="bouton"  (click)="deleteUser()">Supprimer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- ***************************************************************************************************** -->
+<div class="buttons">
+  <button class="button" routerLink="/home-admin" routerLinkActive="active">Home</button>
+  <button class="button" routerLink="/admin-projet" routerLinkActive="active">Projet</button>
+</div>

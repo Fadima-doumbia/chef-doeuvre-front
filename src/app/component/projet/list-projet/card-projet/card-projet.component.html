@@ -2,6 +2,8 @@
   <div class="container">
     <div class="entete">
       <h2>Projet: <span>{{ projet?.name }}</span></h2>
+      <h2>id: <span>{{ projet?.id }}</span></h2>
+      <h2>userId: <span>{{ projet?.userId}}</span></h2>
     </div>
     <hr>
     <div class="content">
@@ -11,11 +13,11 @@
       <h4>Description: <span>{{ projet?.description }}</span></h4>
     </div>
     <div class="buttons">
-      <button type="button" class="bouton">Contacter</button>
-      <button type="button" class="bouton">Retour</button>
-      <button type="button" class="bouton" [routerLink]="['/edit-projet', projet?.id]">Modifier</button>
-      <button type="button" class="bouton"  (click)="deleteProj(projet?.id)">Supprimer</button>
+      <button type="button" class="btn btn-outline-secondary mr-2" placement="top" ngbTooltip="Modifier le projet"  [routerLink]="['/edit-projet', projet?.id]">
+        Modifier
+      </button>
+      <button type="button" class="bouton"  (click)="deleteProj(projet?.id)" ngbTooltip="Modifier le projet">Supprimer</button>
+      <!-- <button type="button" class="bouton"  (click)="deleteProj(projet?.id, projet?.userId)">Supprimer</button> -->
     </div>
   </div>
-<!-- edit-projet/:id -->
 </div>

@@ -16,16 +16,11 @@ export class LoginComponent implements OnInit {
       Validators.minLength(4),
     ])
   });
-
-
   constructor(
     private authService: AuthService,
     private router : Router
   ) { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
   onSubmit() {
     // console.log(form.value);
     this.authService.login(this.loginForm.value).subscribe(

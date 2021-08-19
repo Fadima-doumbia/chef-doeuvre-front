@@ -16,6 +16,7 @@ export class ProjetService {
     private httpClient: HttpClient,
     private authService: AuthService,
     ) { }
+
     // methode pour mettre a jour les projets
     emitProjetSubject() {
       this.getAllProject().subscribe(
@@ -27,33 +28,42 @@ export class ProjetService {
 //********************************************************************************************************************* */
 
   addProject(newProjet: Projet){
-    // this.projets.push(newProjet);
-    // console.log(this.projets);
-    // this.emitDataProject();
     const id = this.authService.getUserIdToken();
     return this.httpClient.post(`${this.baseUrl}/projets/${id}`, newProjet)
   }
 //********************************************************************************************************************* */
 
   deletePost(id : number){
-    return this.httpClient.delete(`${this.baseUrl}/projets/${id}`)
+    return this.httpClient.delete(`${this.baseUrl}/projets/delete/${id}`)
   }
+
+//********************************************************************************************************************* */
+
+  deleteUserPost(id : number, userId : number){
+    return this.httpClient.delete(`${this.baseUrl}/projets/${id}/delete/${userId}`);
+  }
+
 //********************************************************************************************************************* */
 
   getById(id: number) {
     return this.httpClient.get<Projet>(`${this.baseUrl}/projets/${id}`);
   }
+
 //********************************************************************************************************************* */
 
   getAllProject() {//j'ai mis un tableau card il me retourne un tableau d'objet
-    return this.httpClient.get<Projet[]>(`${this.baseUrl}/projets`);
+    return this.httpClient.get<Projet[]>(`${this.baseUrl}/projets`)
+    // .subscribe(resp=>
+    //   this.projectSubject.next(resp)
+    // );
   }
 
   //********************************************************************************************************************* */
 
-  getProject(): Observable<Array<Projet>> {
-    return this.httpClient.get<Array<Projet>>(`${this.baseUrl}/projets`);
-  }
+  // getProject(id:any): Observable<Array<Projet>> {
+  //   return this.httpClient.get<Array<Projet>>(`${this.baseUrl}/projets/${id}`);
+  // }
+
 //********************************************************************************************************************* */
 
   updateProjet(updateProjet: Projet) {

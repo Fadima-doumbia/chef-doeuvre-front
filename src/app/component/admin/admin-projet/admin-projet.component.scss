@@ -33,7 +33,9 @@
   flex-wrap: wrap;
   justify-content: space-around;
   .list-projets{
-    max-width: 300px;
+    height: auto;
+    min-height: 300px;
+    width: 30%;
     border: 1px solid salmon;
     background-color: rgb(238, 234, 234);
     border-radius: 10px;

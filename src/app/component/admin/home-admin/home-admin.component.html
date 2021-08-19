@@ -1,53 +1,52 @@
-<p>admin works!</p>
-<div class="admin row">
-  <div class="nouveau-projet col-sm-4 md-8 lg-12">
-    <h4>Ajouter un nouveau admin</h4>
-    <button type="button" class="btn btn-outline-secondary mr-2 buttonAdd" routerLink="/add-admin"
-      routerLinkActive="active">
-      <div class="buttonAdd">
-        <i class="fas fa-plus-circle"></i>
-      </div>
-    </button>
-  </div>
-  <div class="nouveau-projet col-sm-4 md-8 lg-12">
-    <h4>Supprimer un utilisateur ou un projet</h4>
-    <button type="button" class="btn btn-outline-secondary mr-2 buttonAdd" routerLink="/reseau"
-      routerLinkActive="active">
-      <div class="buttonAdd">
-        <i class="fas fa-plus-circle"></i>
-      </div>
-    </button>
-  </div>
-</div>
-
-<table >
-  <thead>
-    <tr>
-      <th scope="col">Nom</th>
-      <th scope="col">Prenom</th>
-      <th scope="col">Mail</th>
-      <th scope="col">Role</th>
-      <th scope="col">Actions</th>
-    </tr>
-  </thead>
-
-  <tbody *ngFor="let user of dataUser">
-    <tr>
-      <td data-label="Nom">{{ user.username }} h</td>
-      <td data-label="Prenom">{{ user.email }} b</td>
-      <td data-label="Mail">{{ user.email }}</td>
-      <td data-label="Role" *ngFor="let role of user?.roles">{{ tolowerRole(role.name) }} </td>
-      <td data-label="Actions">
-        <div class="display">
-          <button type="button" class="btn btn-outline-secondary mr-2" placement="top" ngbTooltip="Modifier le projet">
-            <i class="far fa-edit"></i>
-          </button>
-          <button type="button" class="btn btn-outline-secondary mr-2" placement="top" ngbTooltip="Supprimer le projet">
-            <i class="far fa-trash-alt"></i>
-          </button>
+<div class="container">
+  <div class="admin row">
+    <div class="nouveau-projet col-sm-4 md-8 lg-12">
+      <h4>Ajouter un nouveau admin</h4>
+      <button type="button" class="btn btn-outline-secondary mr-2 buttonAdd" routerLink="/add-admin"
+        routerLinkActive="active">
+        <div class="buttonAdd">
+          <i class="fas fa-plus-circle"></i>
         </div>
-      </td>
-    </tr>
-  </tbody>
-</table>
+      </button>
+    </div>
+  </div>
+  <div class="buttons">
+    <div class="d-grid gap-2 col-6 mx-auto history">
+      <button type="button" class="btnbtn-outline-primary" routerLink="/admin-user" routerLinkActive="active">User</button>
+    </div>
+    <div class="d-grid gap-2 col-6 mx-auto history">
+      <button type="button" class="btnbtn-outline-primary" routerLink="/admin-projet" routerLinkActive="active">Projet</button>
+    </div>
+  </div>
+  <h3>Liste des admins</h3>
+  <table class="listUser">
+    <thead>
+      <tr>
+        <th scope="col">Nom</th>
+        <th scope="col">Prenom</th>
+        <th scope="col">Mail</th>
+        <th scope="col">Role</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
 
+    <tbody *ngFor="let user of dataUser">
+      <tr>
+        <td data-label="Nom">{{ user.username }} h</td>
+        <td data-label="Prenom">{{ user.email }} b</td>
+        <td data-label="Mail">{{ user.email }}</td>
+        <td data-label="Role" *ngFor="let role of user?.roles">{{ tolowerRole(role.name) }} </td>
+        <td data-label="Actions">
+          <div class="display">
+            <!-- <button type="button" class="btn btn-outline-secondary mr-2" placement="top" ngbTooltip="Modifier le projet">
+              <i class="far fa-edit"></i>
+            </button> -->
+            <button type="button" class="btn btn-outline-secondary mr-2" placement="top" ngbTooltip="Supprimer le projet">
+              <i class="far fa-trash-alt"></i>
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -12,7 +12,7 @@ export class UserService {
   userSubject = new Subject<User[]>();
 
   constructor(private httpClient: HttpClient) { }
-
+// mettre a jour le tableau
   emitUserSubject(){
     this.getAllUser().subscribe(
       (resp:any) => {
@@ -21,16 +21,12 @@ export class UserService {
     )
   }
 
-  delete(id : number){
-    return this.httpClient.delete(`${this.baseUrl}/${id}`)
-  }
-
   getById(id: number) {
     return this.httpClient.get<UserRequest>(`${this.baseUrl}/${id}`);
   }
 
-  getAllUser() {
-    return this.httpClient.get<UserRequest[]>(`${this.baseUrl}`);
+  getAllUser():Observable<Array<UserRequest>>  {
+    return this.httpClient.get<Array<UserRequest>>(`${this.baseUrl}`);
   }
 
   getByUsername(username: string) {
@@ -47,7 +43,14 @@ export class UserService {
     return this.httpClient.post(this.baseUrl, newUser)
   }
 
-  update(newValues:any): Observable<any> {
-    return this.httpClient.put<any>(this.baseUrl + "/id" + newValues.id, newValues)
+  // update(newValues:User){
+  //   return this.httpClient.put(`${this.baseUrl}/${id}` + "/id" + newValues.id, newValues)
+  // }
+  updateUser(updateUser: User) {
+    return this.httpClient.put(`${this.baseUrl}`, updateUser);
+  }
+
+  delete(id : number){
+    return this.httpClient.delete(`${this.baseUrl}/${id}`)
   }
 }

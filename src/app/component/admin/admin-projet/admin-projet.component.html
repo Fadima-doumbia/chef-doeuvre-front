@@ -1,8 +1,4 @@
 <div class="container">
-  <div class="btn-group bouton-group" role="group" aria-label="Basic example">
-    <button type="button" class="btn btn-primary bouton">Left</button>
-    <button type="button" class="btn btn-primary bouton">Right</button>
-  </div>
   <!-- ********************************************************************************************************* -->
   <div class="container-fluid">
     <form class="d-flex SEARCH">
@@ -33,31 +29,6 @@
   </div>
   <!-- ********************************************************************************************************* -->
   <hr>
-  <!-- <div class="container">
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Id</th>
-          <th scope="col">Name</th>
-          <th scope="col">Description</th>
-          <th scope="col">Besoin</th>
-          <th scope="col">Date de début</th>
-          <th scope="col">Entrepreneur</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let projet of dataProject">
-          <th scope="row">{{projet.id}}</th>
-          <td>{{projet.name}}</td>
-          <td>{{projet.description}}</td>
-          <td>{{projet.besoin}}</td>
-          <td>{{projet.dateD}}</td>
-          <td>{{projet.entrepreneur}}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div> -->
-
 <div class="projet">
   <div class="list-projets" *ngFor="let projet of dataProject">
     <div class="container conteneur">
@@ -72,9 +43,15 @@
         <h4>Description: <span>{{  projet.description }}</span></h4>
       </div>
       <div class="buttons">
-        <button type="button" class="bouton" ngbTooltip="Contacter le projet">Contacter</button>
-        <!-- <button type="button" class="bouton" ngbTooltip="Supprimer le projet">Supprimer</button> -->
+        <button type="button" class="bouton">Contacter</button>
+        <button type="button" class="bouton" >Modifier</button>
+        <button type="button" class="bouton" >Supprimer</button>
       </div>
     </div>
   </div>
+</div>
+
+<div class="buttons">
+  <button class="button" routerLink="/home-admin" routerLinkActive="active">Home</button>
+  <button class="button" routerLink="/admin-user" routerLinkActive="active">User</button>
 </div>

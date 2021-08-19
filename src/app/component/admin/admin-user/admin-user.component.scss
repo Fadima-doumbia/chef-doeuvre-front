@@ -35,7 +35,7 @@ body {
 table {
   border: 1px solid #ccc;
   border-collapse: collapse;
-  margin: 1rem 0;
+  margin: 0;
   padding: 0;
   width: 100%;
   table-layout: fixed;
@@ -65,25 +65,9 @@ table th {
 }
 table .display{
   display: flex !important;
-  justify-content: center;
+  justify-content: space-between;
 }
-.buttons{
-  display: flex;
-  justify-content: space-around;
-  .history{
-    padding: 10px;
 
-    button{
-      color: #3c5aa6;
-      border: #f27e63 1px solid;
-      height: auto;
-      width: 80px;
-      padding: 5px;
-      margin: auto;
-      border-radius: 5px;
-    }
-  }
-}
 @media screen and (max-width: 770px) {
   table {
     border: 0;
@@ -134,5 +118,40 @@ table .display{
 
   table td:last-child {
     border-bottom: 0;
+  }
+}
+
+.projet{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  .list-projets{
+    height: auto;
+    min-height: 300px;
+    width: 30%;
+    border: 1px solid salmon;
+    background-color: rgb(238, 234, 234);
+    border-radius: 10px;
+    color: #3c5aa6;
+    margin: 1rem;
+    .content{
+      span{
+        font-size: medium;
+      }
+    }
+    .buttons{
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      // margin: 10px;
+      button{
+        color: #3c5aa6;
+        border: #f27e63 1px solid;
+        padding: 5px;
+        margin: 5px;
+        border-radius: 5px;
+      }
+    }
   }
 }

@@ -38,7 +38,8 @@ export class DeleteProjetComponent implements OnInit {
   }
 
   deleteProj() {//fonction bouton de validation et d'envoi des infos
-    const id:any = this.route.snapshot.paramMap.get("id")
+    const id:any = this.route.snapshot.paramMap.get("id");
+    // const userId:any = this.route.snapshot.paramMap.get("userId");
     console.log(id);//recuperer l'objet
     this.projetService.deletePost(id).subscribe(
       (project: Projet) => {
@@ -51,6 +52,8 @@ export class DeleteProjetComponent implements OnInit {
 
   onSubmit() {
     const formValues:any = this.projetForm?.value;
+    // const userId:any = this.route.snapshot.paramMap.get("userId");
+
     console.log(formValues);
     this.projetService.deletePost(formValues).subscribe(
       (resp: any) => {

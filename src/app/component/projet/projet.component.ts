@@ -38,11 +38,13 @@ export class ProjetComponent implements OnInit {
 
     ngOnInit(): void {
       const id = this.authService.getCurrentUser();
+      console.log(id);
       this.projectSubcription = this.userService.getById(id)
       .subscribe((user:User) => {
           this.user = user;
-        }
-      )
+          console.log(user);
+      }
+    )
   }
 
   ngOnDestroy(){
@@ -50,12 +52,8 @@ export class ProjetComponent implements OnInit {
     console.log('destroy component project')
   }
 
-  addphoto(event:any){
-    this.selectFile = event.target.files[0];
-   // console.log(this.selectFile);
-  }
-
   updateProj() {//fonction bouton de validation et d'envoi des infos
+    console.log("update projet")
     const formValues = this.projectForm?.value;
     console.log(formValues);//recuperer l'objet
     this.projetService.updateProjet(formValues).subscribe(

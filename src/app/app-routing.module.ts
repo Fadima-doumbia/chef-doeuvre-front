@@ -8,7 +8,6 @@ import { HomeComponent } from './component/home/home.component';
 import { LayoutComponent } from './component/layout/layout.component';
 import { LoginComponent } from './component/login/login.component';
 import { NotFoundComponent } from './component/not-found/not-found.component';
-import { HistoriqueComponent } from './component/projet/historique/historique.component';
 import { ProjetComponent } from './component/projet/projet.component';
 import { RegisterComponent } from './component/register/register.component';
 import { ReseauComponent } from './component/reseau/reseau.component';
@@ -17,6 +16,8 @@ import { EditProjetComponent } from './component/projet/edit-projet/edit-projet.
 import { DeleteProjetComponent } from './component/projet/delete-projet/delete-projet.component';
 import { ListProjetComponent } from './component/projet/list-projet/list-projet.component';
 import { ListUserComponent } from './user/list-user/list-user.component';
+import { AdminProjetComponent } from './component/admin/admin-projet/admin-projet.component';
+import { AdminUserComponent } from './component/admin/admin-user/admin-user.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent},
@@ -25,7 +26,6 @@ const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full'},
     { path: 'home',  component: HomeComponent},
     { path: 'projet',  component: ProjetComponent},
-    { path: 'historique',  component: HistoriqueComponent},
     { path: 'add-projet',  component: AddProjetComponent},
     { path: 'list-projet',  component: ListProjetComponent},
     { path: 'list-user',  component: ListUserComponent},
@@ -33,6 +33,8 @@ const routes: Routes = [
     { path: 'delete-projet/:id',  component: DeleteProjetComponent},
     { path: 'home-admin',  component: HomeAdminComponent},
     { path: 'add-admin',  component: AddAdminComponent},
+    { path: 'admin-projet',  component: AdminProjetComponent},
+    { path: 'admin-user',  component: AdminUserComponent},
     { path: 'edit-profil',  component: EditProfilComponent},
     { path: 'reseau',  component: ReseauComponent},
     { path:'**', redirectTo:'/not-found'},

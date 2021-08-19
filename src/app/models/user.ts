@@ -8,7 +8,7 @@ export class User{
   password?: string;
   roles?: Array<Role>;
   projects?: Array<Projet>;
-  // presentation?: string;
+  presentation?: string;
   // pays?: string;
  //  image?: String;
    // firstName?: string;

@@ -11,7 +11,6 @@ import { HomeComponent } from './component/home/home.component';
 import { ReseauComponent } from './component/reseau/reseau.component';
 import { AddProjetComponent } from './component/add-projet/add-projet.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { HistoriqueComponent } from './component/projet/historique/historique.component';
 import { NotFoundComponent } from './component/not-found/not-found.component';
 import { LoginComponent } from './component/login/login.component';
 import { HomeAdminComponent } from './component/admin/home-admin/home-admin.component';
@@ -28,6 +27,9 @@ import { AuthInterceptor } from './component/interceptor/auth.interceptor';
 import { LayoutComponent } from './component/layout/layout.component';
 import { EditProjetComponent } from './component/projet/edit-projet/edit-projet.component';
 import { DeleteProjetComponent } from './component/projet/delete-projet/delete-projet.component';
+import { AdminProjetComponent } from './component/admin/admin-projet/admin-projet.component';
+import { AdminUserComponent } from './component/admin/admin-user/admin-user.component';
+import { EditUserComponent } from './component/edit-user/edit-user.component';
 
 
 @NgModule({
@@ -42,7 +44,6 @@ import { DeleteProjetComponent } from './component/projet/delete-projet/delete-p
     CardProjetComponent,
     AddProjetComponent,
     EditProjetComponent,
-    HistoriqueComponent,
     NotFoundComponent,
     LoginComponent,
     RegisterComponent,
@@ -53,7 +54,10 @@ import { DeleteProjetComponent } from './component/projet/delete-projet/delete-p
     ListUserComponent,
     CardUserComponent,
     LayoutComponent,
-    DeleteProjetComponent
+    DeleteProjetComponent,
+    AdminProjetComponent,
+    AdminUserComponent,
+    EditUserComponent
   ],
 
   imports: [

@@ -17,11 +17,8 @@ export class AuthService {
     private httpClient: HttpClient,
     private router: Router,
     private userService: UserService
-  ) {
-    // this.API_URL = this.dev ? this.URL_DEV : this.URL_TEST;//pour dire si le dev utilise son ordinateur ou pas. si c'est le cas on utilise le localhost sinon on utilise l'url
+  ) {// this.API_URL = this.dev ? this.URL_DEV : this.URL_TEST;//pour dire si le dev utilise son ordinateur ou pas. si c'est le cas on utilise le localhost sinon on utilise l'url
   }//seul le dev se connecte avec le localhost tout les autres users utilisent le URL_TEST pour acceder au site
-
-
   // ***************************************************************************************************************************
   login(user: UserRequest) {
     return this.httpClient.post(`${this.URL_DEV}/login`, user)
@@ -79,12 +76,14 @@ export class AuthService {
 
   // ***************************************************************************************************************************
   newAdmin(newAdmin: UserRequest) {
-    return this.httpClient.post<any>('http://localhost:8080/api/auth/register', newAdmin)
+    return this.httpClient.post<any>
+    ('http://localhost:8080/api/auth/register', newAdmin)
   }
 
 // ***************************************************************************************************************************
   register(newUser: UserRequest) {
-    return this.httpClient.post(`http://localhost:8080/api/auth/register`, newUser)
+    return this.httpClient.post
+    (`http://localhost:8080/api/auth/register`, newUser)
   }
 
 // ***************************************************************************************************************************

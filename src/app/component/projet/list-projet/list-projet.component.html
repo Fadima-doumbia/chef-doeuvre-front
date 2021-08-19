@@ -1,6 +1,7 @@
 <div class="list-feature" >
   <app-card-projet
     *ngFor="let projet of user?.projects"
-    [projet]="projet">
+    [projet]="projet"
+    (idToDelete)="deleteProject($event, $event)">
   </app-card-projet>
 </div>

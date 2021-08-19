@@ -11,12 +11,15 @@
 
     <div class="presentation">
       <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Présentation: </label>
+        <!-- <label for="exampleFormControlTextarea1" class="form-label">Présentation: </label>
         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">
-        </textarea>
+        </textarea> -->
+        <p>PRESENTATION : ==> {{user?.presentation}}</p>
+
       </div>
-      <i class="far fa-edit"></i>
     </div>
   </div>
-  <i class="fas fa-user-edit"></i>
+    <button type="button" class="btn btn-outline-secondary mr-2" placement="top" ngbTooltip="Modifier le projet" routerLink="/edit-profil">
+      <i class="fas fa-user-edit"></i>
+    </button>
 </div>

@@ -58,6 +58,7 @@ export class AddProjetComponent implements OnInit {
         this.router.navigate(['/projet']);
       },
       (error) => {
+        console.log(error)
         console.log('faild');
       }
     );
