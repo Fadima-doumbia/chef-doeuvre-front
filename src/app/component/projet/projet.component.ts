@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { User } from 'src/app/models/user';
@@ -17,7 +17,6 @@ export class ProjetComponent implements OnInit {
   user?: User;
   projectSubcription? : Subscription;
 
-  selectFile:any =null;
 
     constructor(
     private authService: AuthService,
@@ -36,12 +35,12 @@ export class ProjetComponent implements OnInit {
 
 
 
-    ngOnInit(): void {
+  ngOnInit(): void {
       const id = this.authService.getCurrentUser();
-      console.log(id);
       this.projectSubcription = this.userService.getById(id)
       .subscribe((user:User) => {
           this.user = user;
+          this.dataProject = user.projects;
           console.log(user);
       }
     )
@@ -57,7 +56,7 @@ export class ProjetComponent implements OnInit {
     const formValues = this.projectForm?.value;
     console.log(formValues);//recuperer l'objet
     this.projetService.updateProjet(formValues).subscribe(
-      (project: Projet) => {
+      (project: any) => {
         console.log(project);
         this.dataProject?.push(project);
       }
@@ -67,12 +66,18 @@ export class ProjetComponent implements OnInit {
   onSubmit() {//fonction bouton de validation et d'envoi des infos
     const formValues = this.projectForm?.value;
     console.log(formValues);//recuperer l'objet
+
     this.projetService.postProject(formValues).subscribe(
       (project: Projet) => {
         console.log(project);
         this.dataProject?.push(project);
       }
     )
-    formValues["photo"] = this.selectFile;
   }
+
+  onDelete(id:number){
+     this.dataProject = this.dataProject?.filter((data:any) => data.id != id)
+  }
+
+
 }

@@ -14,15 +14,11 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NotFoundComponent } from './component/not-found/not-found.component';
 import { LoginComponent } from './component/login/login.component';
 import { HomeAdminComponent } from './component/admin/home-admin/home-admin.component';
-import { CardComponent } from './component/card/card.component';
 import { RegisterComponent } from './component/register/register.component';
 import { EditProfilComponent } from './component/edit-profil/edit-profil.component';
-import { CardProjetComponent } from './component/projet/list-projet/card-projet/card-projet.component';
-import { ListProjetComponent } from './component/projet/list-projet/list-projet.component';
 import { ProjetComponent } from './component/projet/projet.component';
 import { UserComponent } from './user/user.component';
 import { ListUserComponent } from './user/list-user/list-user.component';
-import { CardUserComponent } from './user/list-user/card-user/card-user.component';
 import { AuthInterceptor } from './component/interceptor/auth.interceptor';
 import { LayoutComponent } from './component/layout/layout.component';
 import { EditProjetComponent } from './component/projet/edit-projet/edit-projet.component';
@@ -30,6 +26,8 @@ import { DeleteProjetComponent } from './component/projet/delete-projet/delete-p
 import { AdminProjetComponent } from './component/admin/admin-projet/admin-projet.component';
 import { AdminUserComponent } from './component/admin/admin-user/admin-user.component';
 import { EditUserComponent } from './component/edit-user/edit-user.component';
+import { CardUserComponent } from './user/list-user/card-user/card-user.component';
+import { CardComponent } from './component/projet/card/card.component';
 
 
 @NgModule({
@@ -40,18 +38,16 @@ import { EditUserComponent } from './component/edit-user/edit-user.component';
     HomeComponent,
     ReseauComponent,
     ProjetComponent,
-    ListProjetComponent,
-    CardProjetComponent,
     AddProjetComponent,
     EditProjetComponent,
     NotFoundComponent,
     LoginComponent,
     RegisterComponent,
-    CardComponent,
     HomeAdminComponent,
     EditProfilComponent,
     UserComponent,
     ListUserComponent,
+    CardComponent,
     CardUserComponent,
     LayoutComponent,
     DeleteProjetComponent,

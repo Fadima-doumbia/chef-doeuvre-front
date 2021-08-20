@@ -1,6 +1,12 @@
 
 <!-- ******************************Ajouter un nouveau projet**************************************************** -->
-<app-list-projet [user]="user" class="container"></app-list-projet>
+<app-card
+*ngFor="let projet of dataProject"
+(idToDelete)="onDelete($event)"
+[projet]="projet" class="container">
+</app-card>
+
+
 <div class="nouveau-projet">
   <h4>Ajouter un nouveau projet</h4>
   <button type="button" class="btn btn-outline-secondary mr-2 buttonAdd" routerLink="/add-projet"

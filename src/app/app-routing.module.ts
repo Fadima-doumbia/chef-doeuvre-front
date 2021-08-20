@@ -14,7 +14,6 @@ import { ReseauComponent } from './component/reseau/reseau.component';
 import { EditProfilComponent } from './component/edit-profil/edit-profil.component';
 import { EditProjetComponent } from './component/projet/edit-projet/edit-projet.component';
 import { DeleteProjetComponent } from './component/projet/delete-projet/delete-projet.component';
-import { ListProjetComponent } from './component/projet/list-projet/list-projet.component';
 import { ListUserComponent } from './user/list-user/list-user.component';
 import { AdminProjetComponent } from './component/admin/admin-projet/admin-projet.component';
 import { AdminUserComponent } from './component/admin/admin-user/admin-user.component';
@@ -27,7 +26,6 @@ const routes: Routes = [
     { path: 'home',  component: HomeComponent},
     { path: 'projet',  component: ProjetComponent},
     { path: 'add-projet',  component: AddProjetComponent},
-    { path: 'list-projet',  component: ListProjetComponent},
     { path: 'list-user',  component: ListUserComponent},
     { path: 'edit-projet/:id',  component: EditProjetComponent},
     { path: 'delete-projet/:id',  component: DeleteProjetComponent},

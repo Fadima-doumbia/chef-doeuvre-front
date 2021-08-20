@@ -34,13 +34,13 @@ export class ProjetService {
 //********************************************************************************************************************* */
 
   deletePost(id : number){
-    return this.httpClient.delete(`${this.baseUrl}/projets/delete/${id}`)
+    return this.httpClient.delete(`${this.baseUrl}/projets/${id}`)
   }
 
 //********************************************************************************************************************* */
 
-  deleteUserPost(id : number, userId : number){
-    return this.httpClient.delete(`${this.baseUrl}/projets/${id}/delete/${userId}`);
+  deleteUserPost(id : number){
+    return this.httpClient.delete(`${this.baseUrl}/projets/${id}`);
   }
 
 //********************************************************************************************************************* */
@@ -60,9 +60,9 @@ export class ProjetService {
 
   //********************************************************************************************************************* */
 
-  // getProject(id:any): Observable<Array<Projet>> {
-  //   return this.httpClient.get<Array<Projet>>(`${this.baseUrl}/projets/${id}`);
-  // }
+  getProject(id:any): Observable<Array<Projet>> {
+    return this.httpClient.get<Array<Projet>>(`${this.baseUrl}/projets/${id}`);
+  }
 
 //********************************************************************************************************************* */
 
