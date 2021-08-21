@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { Projet } from 'src/app/models/projet.model';
 import { User } from 'src/app/models/user';
@@ -17,22 +18,32 @@ export class ReseauComponent implements OnInit {
     private projetService: ProjetService
   ) { }
 
+  searchForm = new FormGroup({
+    name: new FormControl('')
+  });
+
   ngOnInit(): void {
-    this.getProject();
-    // Pour charger et mettre à jour tout le temps
-    this.projectSub = this.projetService.projectSubject.subscribe(
+    this.projectSub = this.projetService.getAllProject().subscribe(
       (resp: Projet[]) => {
         this.dataProject = resp;
+        console.log(this.dataProject)
       }
     )
   }
 
   getProject() {
-    this.projetService.getAllProject().subscribe(
-      (resp:Projet[]) => {
+    this.projectSub = this.projetService.searchProject(this.searchForm.value).subscribe(
+      (resp: Projet[]) => {
         this.dataProject = resp;
+        console.log(this.dataProject)
       }
     )
   }
+
+
+  onSubmit() {
+    this.getProject();
+  }
+
 
 }

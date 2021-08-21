@@ -21,6 +21,18 @@ export class UserService {
     )
   }
 
+
+
+  create(newUser: UserRequest){
+    const body=JSON.stringify(newUser);
+    const formData=new FormData();
+    for(const [key, value] of Object.entries(newUser)){
+      formData.append(key,value)
+    }
+    console.log(body);
+    return this.httpClient.post(this.baseUrl, newUser)
+  }
+  
   getById(id: number) {
     return this.httpClient.get<UserRequest>(`${this.baseUrl}/${id}`);
   }
@@ -33,24 +45,11 @@ export class UserService {
     return this.httpClient.get<UserRequest>(`${this.baseUrl}/${username}`);
   }
 
-  create(newUser: UserRequest){
-    const body=JSON.stringify(newUser);
-    const formData=new FormData();
-    for(const [key, value] of Object.entries(newUser)){
-      formData.append(key,value)
-    }
-    console.log(body);
-    return this.httpClient.post(this.baseUrl, newUser)
-  }
-
-  // update(newValues:User){
-  //   return this.httpClient.put(`${this.baseUrl}/${id}` + "/id" + newValues.id, newValues)
-  // }
   updateUser(updateUser: User) {
     return this.httpClient.put(`${this.baseUrl}`, updateUser);
   }
 
   delete(id : number){
-    return this.httpClient.delete(`${this.baseUrl}/${id}`)
+    return this.httpClient.delete(`${this.baseUrl}/delete/${id}`)
   }
 }

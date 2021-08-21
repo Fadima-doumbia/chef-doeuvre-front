@@ -1,8 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Projet } from 'src/app/models/projet.model';
-import { User } from 'src/app/models/user';
-import { AuthService } from 'src/app/services/auth.service';
 import { ProjetService } from 'src/app/services/projet.service';
 
 @Component({
@@ -16,19 +14,12 @@ export class CardComponent implements OnInit {
 
   constructor(
     private projetService: ProjetService,
-    private router: Router,private route: ActivatedRoute) { }
+    private router: Router,private route: ActivatedRoute
+  ) { }
 
-  ngOnInit(): void {
-    // const id:any = this.route.snapshot.paramMap.get("id");
-    // const id:any = this.authService.getCurrentUser()
-    // console.log(id)
+  ngOnInit(): void { }
 
-    // this.projetService.getById(id).subscribe(
-    //   (projet: Projet) => {
-    //     // this.userForm?.patchValue(projet);
-    //     console.log(projet);
-    //   }
-    // )
+  addNewItem(value: string) {
   }
 
   deleteProj(id:any) {

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { Projet } from '../models/projet.model';
+import { SearchProjetRequest } from '../payload/search-projet.request';
 import { AuthService } from './auth.service';
 
 @Injectable({
@@ -18,13 +19,13 @@ export class ProjetService {
     ) { }
 
     // methode pour mettre a jour les projets
-    emitProjetSubject() {
-      this.getAllProject().subscribe(
-        (resp:any) => {
-          this.projectSubject.next(resp);
-        }
-      )
-    }
+    // emitProjetSubject() {
+    //   this.getAllProject().subscribe(
+    //     (resp:any) => {
+    //       this.projectSubject.next(resp);
+    //     }
+    //   )
+    // }
 //********************************************************************************************************************* */
 
   addProject(newProjet: Projet){
@@ -53,9 +54,6 @@ export class ProjetService {
 
   getAllProject() {//j'ai mis un tableau card il me retourne un tableau d'objet
     return this.httpClient.get<Projet[]>(`${this.baseUrl}/projets`)
-    // .subscribe(resp=>
-    //   this.projectSubject.next(resp)
-    // );
   }
 
   //********************************************************************************************************************* */
@@ -64,11 +62,16 @@ export class ProjetService {
     return this.httpClient.get<Array<Projet>>(`${this.baseUrl}/projets/${id}`);
   }
 
+  //*********************************************************************************************************************
+  searchProject(search: SearchProjetRequest){
+    return this.httpClient.post<Array<Projet>>(`${this.baseUrl}/projets/searchProject`, search);
+  }
 //********************************************************************************************************************* */
 
   updateProjet(updateProjet: Projet) {
     return this.httpClient.put(`${this.baseUrl}/projets`, updateProjet);
   }
+
 //********************************************************************************************************************* */
 
   postProject(newProjet: Projet){

@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
     if(id){
         this.userService.getById(id).subscribe((user: User) => {
           this.user = user
+          console.log(user)
         });
     }
   }

@@ -12,38 +12,28 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./home-admin.component.scss']
 })
 export class HomeAdminComponent implements OnInit {
-  dataUser?: User[];
+  dataUsers?: User[];
   dataProjet?: User[];
   userSubscription?: Subscription;
   projetSubscription?: Subscription;
 
+  // users$: Observable<Array<UserRequest>> | undefined;
+
   constructor(
-    private projetService: ProjetService,
     private userService: UserService
   ) { }
 
   ngOnInit(): void {
-    this.getUser();
-
-    // this.projetSubscription = this.projetService.projectSubject.subscribe(
-    //   (resp: Projet[]) => {
-    //     this.dataProjet = resp;
-    //   }
-    // )
-
-      // *************************************************************************************
-
-      this.userSubscription = this.projetService.projectSubject.subscribe(
-      (resp: User[]) => {
-        this.dataUser = resp;
-      }
-    )
+    this.getUsers();
   }
 
-  getUser() {
+  getUsers() {
     this.userService.getAllUser().subscribe(
-      (resp:User[]) => {
-        this.dataUser = resp;
+      (users:User[]) => {
+        console.log(this.dataUsers);
+        const roles = ["ROLE_ADMIN"];
+        this.dataUsers = users.filter((data:User) => !!data.roles?.find((role:any) => roles.includes(role.name)));//je filtre puis je verifie si mon role existe dans mon tableau
+        console.log(this.dataUsers);
       }
     )
   }
@@ -56,12 +46,4 @@ export class HomeAdminComponent implements OnInit {
     }
     return role[roleName];
   }
-
-  // getProject() {
-  //   this.projetService.getAllProject().subscribe(
-  //     (resp:Projet[]) => {
-  //       this.dataProjet = resp;
-  //     }
-  //   )
-  // }
 }

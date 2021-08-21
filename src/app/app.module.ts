@@ -26,7 +26,6 @@ import { DeleteProjetComponent } from './component/projet/delete-projet/delete-p
 import { AdminProjetComponent } from './component/admin/admin-projet/admin-projet.component';
 import { AdminUserComponent } from './component/admin/admin-user/admin-user.component';
 import { EditUserComponent } from './component/edit-user/edit-user.component';
-import { CardUserComponent } from './user/list-user/card-user/card-user.component';
 import { CardComponent } from './component/projet/card/card.component';
 
 
@@ -48,7 +47,6 @@ import { CardComponent } from './component/projet/card/card.component';
     UserComponent,
     ListUserComponent,
     CardComponent,
-    CardUserComponent,
     LayoutComponent,
     DeleteProjetComponent,
     AdminProjetComponent,

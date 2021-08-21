@@ -40,7 +40,7 @@ export class ProjetComponent implements OnInit {
       this.projectSubcription = this.userService.getById(id)
       .subscribe((user:User) => {
           this.user = user;
-          this.dataProject = user.projects;
+          this.dataProject = user.projects;//je transfert les projets dans mon tableau
           console.log(user);
       }
     )
@@ -75,9 +75,7 @@ export class ProjetComponent implements OnInit {
     )
   }
 
-  onDelete(id:number){
+  onDelete(id:number){//je filtre les projet une fois le delete executé
      this.dataProject = this.dataProject?.filter((data:any) => data.id != id)
   }
-
-
 }
