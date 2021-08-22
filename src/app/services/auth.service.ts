@@ -76,7 +76,7 @@ export class AuthService {
 
   // ***************************************************************************************************************************
   newAdmin(newAdmin: UserRequest) {
-    return this.httpClient.post<any>
+    return this.httpClient.post
     ('http://localhost:8080/api/auth/register', newAdmin)
   }
 

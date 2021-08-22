@@ -41,7 +41,7 @@ export class ProjetService {
 //********************************************************************************************************************* */
 
   deleteUserPost(id : number){
-    return this.httpClient.delete(`${this.baseUrl}/projets/${id}`);
+    return this.httpClient.delete(`${this.baseUrl}/projets/admin/${id}`);
   }
 
 //********************************************************************************************************************* */

@@ -1,8 +1,8 @@
-<!--
-<div class="login-form text-center">
+<!-- <div class="login-form text-center">
   <main class="form-signin">
     <form (ngSubmit)="onSubmit()" [formGroup]="adminForm">
-      <h1>Nouveau Admin</h1>
+      <h1>Créer ton compte !</h1>
+
       <div class="form-floating">
         <input
           type="text"
@@ -11,34 +11,55 @@
           placeholder=""
           formControlName="username"
         />
-        <label for="floatingInput">Pseudo</label>
+        <label for="floatingInput">username</label>
       </div>
+
       <div class="form-floating">
         <input
           type="email"
+          [ngClass]="{
+            'is-invalid':
+              (registerForm.get('email')?.dirty ||
+                registerForm.get('email')?.touched) &&
+              registerForm.get('email')?.invalid
+          }"
           class="form-control"
           id="floatingInput"
           placeholder=""
           formControlName="email"
-          [ngClass]="{
-            'is-invalid':
-              (adminForm.get('email')?.dirty ||
-                adminForm.get('email')?.touched) &&
-              adminForm.get('email')?.invalid
-          }"
-
         />
         <label for="floatingInput">Adresse email</label>
       </div>
+
+      <div class="form-floating">
+        <input
+          type="text"
+          class="form-control"
+          id="floatingInput"
+          placeholder=""
+          formControlName="presentation"
+        />
+        <label for="floatingInput">presentation</label>
+      </div>
+
+      <div class="form-floating">
+                <select aria-label="Default select example" class="form-control"
+                id="floatingInput"formControlName="role">
+                  <option selected>Selectionnez votre profil</option>
+                  <option value="admin">Admin</option>
+                </select>
+                <label for="floatingInput">Role</label>
+      </div>
+
       <div class="form-floating">
         <input
           type="password"
           class="form-control"
           [ngClass]="{
             'is-invalid':
-              (adminForm.get('password')?.dirty ||
-                adminForm.get('password')?.touched) &&
-              adminForm.get('password')?.invalid
+              (registerForm.get('password')?.dirty ||
+                registerForm.get('password')?.touched) &&
+              registerForm.get('password')?.invalid
           }"
           id="floatingInput"
           placeholder=""
@@ -46,33 +67,14 @@
         />
         <label for="floatingInput">Mot de passe</label>
       </div>
-      <div class="form-floating checkboxs" *ngFor="let role of user?.roles">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="admin" id="flexCheckDefault">
-          <label class="form-check-label" for="flexCheckDefault">
-            Admin
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="entrepreneur" id="flexCheckChecked" checked>
-          <label class="form-check-label" for="flexCheckChecked">
-            Entrepreneur
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="investisseur" id="flexCheckChecked" checked>
-          <label class="form-check-label" for="flexCheckChecked">
-            Investisseur
-          </label>
-        </div>
-      </div>
-      <div class="buttons">
-        <button class="bouton"
+
+      <button
+        class="w-100 btn btn-lg btn-primary"
         type="submit"
-        [disabled]="">Création</button>
-        <button class="bouton"
-                type="submit" onclick="history.back(-1)">Annuler</button>
-      </div>
+        [disabled]="adminForm.invalid"
+      >
+        Création
+      </button>
     </form>
   </main>
 </div> -->

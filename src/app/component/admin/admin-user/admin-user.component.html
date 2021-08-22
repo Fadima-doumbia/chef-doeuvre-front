@@ -1,35 +1,9 @@
-<!-- <div class="container">
-  <table>
-    <thead>
-      <tr>
-        <th scope="col">Nom</th>
-        <th scope="col">Prenom</th>
-        <th scope="col">Mail</th>
-        <th scope="col">Role</th>
-        <th scope="col">Actions</th>
-      </tr>
-    </thead>
-
-    <tbody *ngFor="let user of dataUser">
-      <tr>
-        <td data-label="Nom">{{ user.username }} h</td>
-        <td data-label="Prenom">{{ user.email }} b</td>
-        <td data-label="Mail">{{ user.email }}</td>
-        <td data-label="Role" *ngFor="let role of user?.roles">{{ tolowerRole(role.name) }} </td>
-        <td data-label="Actions">
-          <div class="display">
-            <button type="button" class="btn btn-outline-secondary mr-2" placement="top" ngbTooltip="Modifier le projet">
-              <i class="far fa-edit"></i>
-            </button>
-            <button type="button" class="btn btn-outline-secondary mr-2" placement="top" ngbTooltip="Supprimer le projet">
-              <i class="far fa-trash-alt"></i>
-            </button>
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table> -->
-
+<form class="d-flex SEARCH" (ngSubmit)="onSubmit()" [formGroup]="searchForm">
+  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" formControlName="name">
+  <button class="btn btn-outline-success" type="submit">
+    <i class="fas fa-search"></i>
+  </button>
+</form>
   <div class="projet">
     <div class="list-projets" *ngFor="let user of dataUser">
       <div class="container conteneur">
@@ -44,7 +18,7 @@
         <div class="buttons">
           <button type="button" class="bouton">Contacter</button>
           <!-- <button type="button" class="bouton" >Modifier</button> -->
-          <button type="button" class="bouton"  (click)="deleteUser()">Supprimer</button>
+          <button type="button" class="bouton"  (click)="deleteUser(user)">Supprimer</button>
         </div>
       </div>
     </div>

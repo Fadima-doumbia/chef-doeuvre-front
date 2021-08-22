@@ -17,7 +17,6 @@ export class HomeAdminComponent implements OnInit {
   userSubscription?: Subscription;
   projetSubscription?: Subscription;
 
-  // users$: Observable<Array<UserRequest>> | undefined;
 
   constructor(
     private userService: UserService

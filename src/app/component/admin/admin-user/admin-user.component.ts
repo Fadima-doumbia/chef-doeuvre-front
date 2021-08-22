@@ -1,5 +1,6 @@
 import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Subscription } from 'rxjs';
@@ -22,44 +23,28 @@ export class AdminUserComponent implements OnInit {
   users$: Observable<Array<UserRequest>> | undefined;
 
   constructor(
-    private projetService: ProjetService,
     private userService: UserService,
     private route: ActivatedRoute
-    // private router: Route
   ) { }
 
+  searchForm = new FormGroup({
+    name: new FormControl('')
+  });
+
   ngOnInit(): void {
-      this.users$ = this.userService.getAllUser().pipe(
-        map(users=> users.filter(user => user.role == 'USER'))
-      );
-
-    // const id:any = this.route.snapshot.paramMap.get("id")
-
-    // this.projetService.getById(id).subscribe(
-    //   (user: User) => {
-    //     this.userService.delete(id)
-    //   })
     //*************************************************************************************
-      this.getUsers();
-      this.userSubscription = this.projetService.projectSubject.subscribe(
+
+    this.users$ = this.userService.getAllUser().pipe(
+      map(users=> users.filter(user => user.role == 'USER'))
+    );
+
+    //*************************************************************************************
+    this.userSubscription = this.userService.getAllUser().subscribe(
       (resp: User[]) => {
         this.dataUser = resp;
+        console.log(this.dataUser)
       }
     )
-  }
-
-  getUsers() {
-    this.userService.getAllUser().subscribe(
-      (resp:User[]) => {
-        this.dataUser = resp;
-      }
-    )
-  }
-
-  getUser(){
-    const id:any = this.route.snapshot.paramMap.get("id")
-    const user:any = this.userService.getById(id);
-    console.log(user);
   }
 
   tolowerRole(roleName:any){
@@ -71,15 +56,25 @@ export class AdminUserComponent implements OnInit {
     return role[roleName];
   }
 
-  deleteUser() {//fonction bouton de validation et d'envoi des infos
-    const id:any = this.route.snapshot.paramMap.get("id")
-    console.log(id);//recuperer l'objet
-    this.projetService.deletePost(id).subscribe(
+  deleteUser(user: any) {
+    this.userService.delete(user.id).subscribe(
       (user: User) => {
         console.log(user);
         console.log('delete reussit');
-        // this.router.navigate(['/projet']);
       }
     )
+  }
+
+  getUser() {
+    this.userSubscription = this.userService.searchUser(this.searchForm.value).subscribe(
+      (resp: User[]) => {
+        this.dataUser = resp;
+        console.log(this.dataUser)
+      }
+    )
+  }
+
+  onSubmit() {
+    this.getUser();
   }
 }

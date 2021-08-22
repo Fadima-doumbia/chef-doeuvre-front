@@ -10,9 +10,10 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class AddAdminComponent implements OnInit {
   adminForm = new FormGroup({
-    username: new FormControl(''),
     email: new FormControl(''),
-    roles : new FormControl('', Validators.required),
+    username: new FormControl(''),
+    presentation: new FormControl(''),
+    role : new FormControl('', Validators.required),
     password: new FormControl('', [
       Validators.required,
       Validators.minLength(4),
@@ -26,10 +27,10 @@ export class AddAdminComponent implements OnInit {
   onSubmit() {
     const formValues = this.adminForm?.value;
     console.log(formValues);
-    this.authService.register(formValues).subscribe(
+    this.authService.newAdmin(formValues).subscribe(
       (resp: any) => {
         console.log('reussit');
-        this.router.navigate(['/login']);
+        // this.router.navigate(['/login']);
       },
       (error) => {
         console.log('faild');
