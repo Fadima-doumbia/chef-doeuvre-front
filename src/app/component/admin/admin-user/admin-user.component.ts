@@ -1,13 +1,7 @@
-import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
 import { Subscription } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { User } from 'src/app/models/user';
-import { UserRequest } from 'src/app/payload/user.request';
-import { ProjetService } from 'src/app/services/projet.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -16,15 +10,14 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./admin-user.component.scss']
 })
 export class AdminUserComponent implements OnInit {
+  dataUsers?: User[];
   dataUser?: User[];
   dataProjet?: User[];
   userSubscription?: Subscription;
   projetSubscription?: Subscription;
-  users$: Observable<Array<UserRequest>> | undefined;
 
   constructor(
     private userService: UserService,
-    private route: ActivatedRoute
   ) { }
 
   searchForm = new FormGroup({
@@ -32,19 +25,7 @@ export class AdminUserComponent implements OnInit {
   });
 
   ngOnInit(): void {
-    //*************************************************************************************
-
-    this.users$ = this.userService.getAllUser().pipe(
-      map(users=> users.filter(user => user.role == 'USER'))
-    );
-
-    //*************************************************************************************
-    this.userSubscription = this.userService.getAllUser().subscribe(
-      (resp: User[]) => {
-        this.dataUser = resp;
-        console.log(this.dataUser)
-      }
-    )
+    this.getUsers();
   }
 
   tolowerRole(roleName:any){
@@ -57,24 +38,24 @@ export class AdminUserComponent implements OnInit {
   }
 
   deleteUser(user: any) {
+    console.log(user);
     this.userService.delete(user.id).subscribe(
       (user: User) => {
         console.log(user);
+        this.dataUser = this.dataUser?.filter((data:any) => data.id != user.id);
         console.log('delete reussit');
       }
     )
   }
 
-  getUser() {
-    this.userSubscription = this.userService.searchUser(this.searchForm.value).subscribe(
-      (resp: User[]) => {
-        this.dataUser = resp;
-        console.log(this.dataUser)
+  getUsers() {
+    this.userService.getAllUser().subscribe(
+      (users:User[]) => {
+        const roles = ["ROLE_ENTREPRENEUR", "ROLE_INVESTISSEUR"];
+        this.dataUsers = users.filter((data:User) =>
+        !!data.roles?.find((role:any) => roles.includes(role.name)));
+        console.log(this.dataUsers);
       }
     )
-  }
-
-  onSubmit() {
-    this.getUser();
   }
 }

@@ -16,41 +16,33 @@ export class ProjetService {
   constructor(
     private httpClient: HttpClient,
     private authService: AuthService,
-    ) { }
+  ) { }
 
-    // methode pour mettre a jour les projets
-    // emitProjetSubject() {
-    //   this.getAllProject().subscribe(
-    //     (resp:any) => {
-    //       this.projectSubject.next(resp);
-    //     }
-    //   )
-    // }
-//********************************************************************************************************************* */
+  //********************************************************************************************************************* */
 
   addProject(newProjet: Projet){
     const id = this.authService.getUserIdToken();
     return this.httpClient.post(`${this.baseUrl}/projets/${id}`, newProjet)
   }
-//********************************************************************************************************************* */
+  //********************************************************************************************************************* */
 
   deletePost(id : number){
     return this.httpClient.delete(`${this.baseUrl}/projets/${id}`)
   }
 
-//********************************************************************************************************************* */
+  //********************************************************************************************************************* */
 
   deleteUserPost(id : number){
     return this.httpClient.delete(`${this.baseUrl}/projets/admin/${id}`);
   }
 
-//********************************************************************************************************************* */
+  //********************************************************************************************************************* */
 
   getById(id: number) {
     return this.httpClient.get<Projet>(`${this.baseUrl}/projets/${id}`);
   }
 
-//********************************************************************************************************************* */
+  //********************************************************************************************************************* */
 
   getAllProject() {//j'ai mis un tableau card il me retourne un tableau d'objet
     return this.httpClient.get<Projet[]>(`${this.baseUrl}/projets`)
@@ -66,7 +58,7 @@ export class ProjetService {
   searchProject(search: SearchProjetRequest){
     return this.httpClient.post<Array<Projet>>(`${this.baseUrl}/projets/searchProject`, search);
   }
-//********************************************************************************************************************* */
+  //********************************************************************************************************************* */
 
   updateProjet(updateProjet: Projet) {
     return this.httpClient.put(`${this.baseUrl}/projets`, updateProjet);

@@ -11,6 +11,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class HomeComponent implements OnInit {
   user: User | undefined;
+  
   constructor(
     private userService: UserService,
     private authService: AuthService
@@ -20,10 +21,10 @@ export class HomeComponent implements OnInit {
     const id = this.authService.getUserIdToken();
     console.log(id)
     if(id){
-        this.userService.getById(id).subscribe((user: User) => {
-          this.user = user
-          console.log(user)
-        });
+      this.userService.getById(id).subscribe((user: User) => {
+        this.user = user
+        console.log(user)
+      });
     }
   }
 

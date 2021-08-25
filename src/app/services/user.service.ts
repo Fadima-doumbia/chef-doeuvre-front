@@ -16,14 +16,6 @@ export class UserService {
   userSubject = new Subject<User[]>();
 
   constructor(private httpClient: HttpClient) { }
-// mettre a jour le tableau
-  // emitUserSubject(){
-  //   this.getAllUser().subscribe(
-  //     (resp:any) => {
-  //       this.userSubject.next(resp);
-  //     }
-  //   )
-  // }
 
   create(newUser: UserRequest){
     const body=JSON.stringify(newUser);
@@ -36,7 +28,11 @@ export class UserService {
   }
 
   getById(id: number) {
-    return this.httpClient.get<UserRequest>(`${this.baseUrl}/${id}`);
+    return this.httpClient.get<User>(`${this.baseUrl}/${id}`);
+  }
+
+  getUserById(id: number) {
+    return this.httpClient.get<User>(`${this.baseUrl}/${id}`);
   }
 
   getAllUser():Observable<Array<UserRequest>>  {
@@ -52,9 +48,9 @@ export class UserService {
   }
 
   updateUser(updateUser: User) {
-    return this.httpClient.put(`${this.baseUrl}`, updateUser);
+    return this.httpClient.put(`${this.baseUrl}/update`, updateUser);
   }
-  
+
   delete(id : number){
     return this.httpClient.delete("http://localhost:8080/api/users/delete/" + id);
   }

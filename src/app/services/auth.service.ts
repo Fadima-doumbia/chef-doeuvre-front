@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { map } from 'rxjs/operators';
 import { UserRequest } from '../payload/user.request';
 import { UserService } from './user.service';
@@ -13,6 +14,10 @@ export class AuthService {
   dev = false;
   URL_DEV = 'http://localhost:8080/api/auth';
   API_URL?: string
+  private jwtHelper = new JwtHelperService();
+
+
+
   constructor(
     private httpClient: HttpClient,
     private router: Router,
@@ -67,12 +72,29 @@ export class AuthService {
   // }
 
   // ***************************************************************************************************************************
-  // getUserId(){
-  //   const helper = new JwtHelperService();
-  //   const decodedToken = helper.decodeToken(this.getToken());
-  //   const id = parseInt(decodedToken.sub);
-  //   return id;
-  // }
+  getUserId(){
+    const helper = new JwtHelperService;
+    const decodedToken = helper.decodeToken(this.getToken());
+    console.log(decodedToken);
+    const id = parseInt(decodedToken.sub);
+    return id;
+  }
+
+  // ********************************************************************************************************************************
+  getUserTokenRole(){
+    const token:any = localStorage.getItem("TOKEN_APPLI");
+    const decode = this.jwtHelper.decodeToken(token);
+    // console.log( decode);
+    if (decode !== null) {
+      if (!this.jwtHelper.isTokenExpired(token)) {
+        return { ...decode, token };
+      } else {
+        localStorage.removeItem('TOKEN_APPLI');
+      }
+    }
+    return null;
+  }
+
 
   // ***************************************************************************************************************************
   newAdmin(newAdmin: UserRequest) {

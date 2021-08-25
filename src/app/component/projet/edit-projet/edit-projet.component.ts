@@ -30,7 +30,6 @@ export class EditProjetComponent implements OnInit {
 
   ngOnInit(): void {
     const id:any = this.route.snapshot.paramMap.get("id")
-
     this.projetService.getById(id).subscribe(
       (projet: Projet) => {
         this.projetForm.patchValue(projet);
@@ -38,34 +37,15 @@ export class EditProjetComponent implements OnInit {
     )
   }
 
-  updateProj() {//fonction bouton de validation et d'envoi des infos
+  updateProj() {
     const formValues = this.projetForm?.value;
-    console.log(formValues);//recuperer l'objet
+    console.log(formValues);
     this.projetService.updateProjet(formValues).subscribe(
       (project: Projet) => {
         console.log(project);
-        console.log('update reussie');
+        console.log('update projet reussie');
         this.router.navigate(['/projet']);
       }
     )
   }
-
-  // ngOnDestroy() {
-  //   this.projetService?.unsubscribe();
-  //   console.log('Destroy component feature');
-  // }
-
-  // onSubmit() {
-  //   const formValues:any = this.projetForm?.value;
-  //   console.log(formValues);
-  //   this.projetService.addProject(formValues).subscribe(
-  //     (resp: any) => {
-  //       console.log('reussit');
-  //       this.router.navigate(['/projet']);
-  //     },
-  //     (error) => {
-  //       console.log('faild');
-  //     }
-  //   );
-  // }
 }

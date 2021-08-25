@@ -22,7 +22,6 @@ import { ListUserComponent } from './user/list-user/list-user.component';
 import { AuthInterceptor } from './component/interceptor/auth.interceptor';
 import { LayoutComponent } from './component/layout/layout.component';
 import { EditProjetComponent } from './component/projet/edit-projet/edit-projet.component';
-import { DeleteProjetComponent } from './component/projet/delete-projet/delete-projet.component';
 import { AdminProjetComponent } from './component/admin/admin-projet/admin-projet.component';
 import { AdminUserComponent } from './component/admin/admin-user/admin-user.component';
 import { EditUserComponent } from './component/edit-user/edit-user.component';
@@ -48,7 +47,6 @@ import { CardComponent } from './component/projet/card/card.component';
     ListUserComponent,
     CardComponent,
     LayoutComponent,
-    DeleteProjetComponent,
     AdminProjetComponent,
     AdminUserComponent,
     EditUserComponent
