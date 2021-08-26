@@ -70,40 +70,35 @@
         <h4>UuserId: <span>{{  projet.userId }}</span></h4>
       </div>
       <div class="buttons">
-        <a [href]="test">Envoyer mail</a>
+        <button  type="button" class="bouton"><a [href]="test">Envoyer mail </a></button>
         <!-- Button trigger modal -->
-        <button type="button" class="bouton" ngbTooltip="Contacter le projet" routerLink="/contact" >Contacter</button>
-        <button type="button" class="bouton" ngbTooltip="Contacter le projet"  (click)="getUser(projet.userId)" data-bs-toggle="modal" data-bs-target="#exampleModal">Cliquez ici</button>
+        <button type="button" class="bouton" ngbTooltip="Plus d'infos"  (click)="getUser(projet.userId)" data-bs-toggle="modal" data-bs-target="#exampleModal">Entrepreneur</button>
       </div>
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content" >
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Information de l'entrepreneur  </h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              ...
 
-
-
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content" >
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Information de l'entrepreneur  </h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <h4>Nom Entrepreneur: <span> {{dataUser?.username}} </span></h4>
+              <h4>Email Entrepreneur: <span> {{dataUser?.email}} </span></h4>
+              <a href={{dataUser?.email}}>Envoyer mail</a>
+              <ul>
+                <li>{{dataUser?.projects}}</li>
+              </ul>
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="modal-body">
-        ...
-
-        <h4>Nom Entrepreneur: <span> {{dataUser?.username}} </span></h4>
-        <h4>Email Entrepreneur: <span> {{dataUser?.email}} </span></h4>
-        <a [href]="test">Envoyer mail</a>
-        <ul>
-          <li>{{dataUser?.projects}}</li>
-        </ul>
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-      </div>
-    </div>
-  </div>
-</div>
     </div>
   </div>
 </div>

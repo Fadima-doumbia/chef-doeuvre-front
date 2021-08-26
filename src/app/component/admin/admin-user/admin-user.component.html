@@ -16,7 +16,6 @@
           <h4 *ngFor="let role of user?.roles">Role: <span>{{ tolowerRole(role.name) }}</span></h4>
         </div>
         <div class="buttons">
-          <button type="button" class="bouton">Contacter</button>
           <button type="button" class="bouton"  (click)="deleteUser(user)">Supprimer</button>
         </div>
       </div>

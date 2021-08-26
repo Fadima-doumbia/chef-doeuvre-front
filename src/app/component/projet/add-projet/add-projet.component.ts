@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
-import { Projet } from '../../models/projet.model';
-import { ProjetService } from '../../services/projet.service';
+import { Projet } from '../../../models/projet.model';
+import { ProjetService } from '../../../services/projet.service';
 
 @Component({
   selector: 'app-add-projet',

@@ -16,6 +16,7 @@ export class HomeAdminComponent implements OnInit {
   dataProjet?: User[];
   userSubscription?: Subscription;
   projetSubscription?: Subscription;
+  dataUser?: User[];
 
 
   constructor(
@@ -33,6 +34,17 @@ export class HomeAdminComponent implements OnInit {
         const roles = ["ROLE_ADMIN"];
         this.dataUsers = users.filter((data:User) => !!data.roles?.find((role:any) => roles.includes(role.name)));//je filtre puis je verifie si mon role existe dans mon tableau
         console.log(this.dataUsers);
+      }
+    )
+  }
+
+  deleteUser(user: any) {
+    console.log(user);
+    this.userService.delete(user.id).subscribe(
+      (user: User) => {
+        console.log(user);
+        this.dataUser = this.dataUser?.filter((data:any) => data.id != user.id);
+        console.log('delete reussit');
       }
     )
   }

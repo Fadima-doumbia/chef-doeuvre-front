@@ -54,12 +54,6 @@ export class ReseauComponent implements OnInit {
         console.log(this.dataUser);
       }
     )
-
-
-    // this.userService.getById(id).subscribe((user: User) => {
-    //   this.user = user
-    //   console.log(user)
-    // });
   }
 
 

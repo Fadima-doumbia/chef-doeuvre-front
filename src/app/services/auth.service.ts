@@ -84,7 +84,7 @@ export class AuthService {
   getUserTokenRole(){
     const token:any = localStorage.getItem("TOKEN_APPLI");
     const decode = this.jwtHelper.decodeToken(token);
-    // console.log( decode);
+    console.log( decode);
     if (decode !== null) {
       if (!this.jwtHelper.isTokenExpired(token)) {
         return { ...decode, token };

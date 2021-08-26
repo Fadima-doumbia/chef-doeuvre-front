@@ -23,6 +23,7 @@ export class NavBarComponent implements OnInit {
   ngOnInit(): void {
     this.getUser();
     this.isAdmin();
+    this.isEntrepreneur();
   }
 
   getUser(){
@@ -32,7 +33,6 @@ export class NavBarComponent implements OnInit {
       this.userService.getById(id).subscribe((user: User) => {
         this.user = user
         console.log(user)
-        const roleAdmin = ["ROLE_ADMIN"];
         this.roleObj = user.roles
         console.log(this.roleObj[0].name) ;
          this.role = this.roleObj[0].name;
@@ -42,8 +42,14 @@ export class NavBarComponent implements OnInit {
   }
 
   isAdmin(){
-    // console.log(this.role);
-  //  console.log(this.authService.getUserTokenRole().sub);
-    return(this.authService.getUserTokenRole().sub == 'admin')
+    console.log(this.authService.getUserTokenRole().roles[0].authority)
+    console.log(this.authService.getUserTokenRole().roles[0].authority == 'ROLE_ADMIN')
+    return(this.authService.getUserTokenRole().roles[0].authority == 'ROLE_ADMIN')
+  }
+
+  isEntrepreneur(){
+    console.log(this.authService.getUserTokenRole().roles[0].authority)
+    console.log(this.authService.getUserTokenRole().roles[0].authority == "ROLE_ENTREPRENEUR")
+    return(this.authService.getUserTokenRole().roles[0].authority == "ROLE_ENTREPRENEUR")
   }
 }
