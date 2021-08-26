@@ -3,13 +3,13 @@
     <i class="fas fa-user"></i>  </div>
   <div class="bloc">
     <div class="infos">
-      <p>USERNANE : ==> {{user?.username}}</p>
-      <p *ngFor="let role of user?.roles">STATUS : ==> {{ tolowerRole(role.name) }}</p>
-      <p>EMAIL : ==> {{user?.email}}</p>
+      <p>PSEUDO :  {{user?.username}}</p>
+      <p *ngFor="let role of user?.roles">STATUS :  {{ tolowerRole(role.name) }}</p>
+      <p>EMAIL :  {{user?.email}}</p>
     </div>
       <!-- ******************************presentation******************************************************** -->
     <div class="presentation">
-        <p>PRESENTATION : ==> {{user?.presentation}}</p>
+        <p>PRESENTATION :  {{user?.presentation}}</p>
     </div>
   </div>
     <button type="button" class="btn btn-outline-secondary mr-2" placement="top" ngbTooltip="Modifier le projet" routerLink="/edit-profil">

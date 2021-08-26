@@ -1,5 +1,4 @@
-<p>nous-contacter works!</p>
-<form id="contact-form" (submit)="sendEmail($event)">
+<!-- <form id="contact-form" (submit)="sendEmail($event)">
   <input type="hidden" name="contact_number">
   <label>Name</label>
   <input type="text" name="user_name">
@@ -8,4 +7,24 @@
   <label>Message</label>
   <textarea name="message"></textarea>
   <input type="submit" value="Send">
+</form> -->
+
+<h2 class="title">Formulaire de Contact</h2>
+<form>
+  <input type="hidden" name="contact_number">
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Nom Prenom</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nom Prenom" name="user_name">
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="user_name">
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"  name="message"></textarea>
+  </div>
+  <div class="col-12">
+    <button class="btn btn-primary" type="submit" value="Send">Envoyer</button>
+  </div>
 </form>

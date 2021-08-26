@@ -155,3 +155,17 @@ table .display{
     }
   }
 }
+
+.buttons{
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  button{
+    color: #3c5aa6;
+    border: #f27e63 1px solid;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+  }
+}

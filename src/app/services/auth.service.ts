@@ -62,6 +62,7 @@ export class AuthService {
         return user_id;
       }
     }
+    
   // ***************************************************************************************************************************
   // getToken(){
   //   const token =localStorage.getItem('TOKEN_APPLI')
@@ -84,7 +85,7 @@ export class AuthService {
   getUserTokenRole(){
     const token:any = localStorage.getItem("TOKEN_APPLI");
     const decode = this.jwtHelper.decodeToken(token);
-    console.log( decode);
+    // console.log( decode);
     if (decode !== null) {
       if (!this.jwtHelper.isTokenExpired(token)) {
         return { ...decode, token };
@@ -94,7 +95,6 @@ export class AuthService {
     }
     return null;
   }
-
 
   // ***************************************************************************************************************************
   newAdmin(newAdmin: UserRequest) {

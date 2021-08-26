@@ -1,0 +1,22 @@
+.list-projects{
+  border: 1px solid #f27e63;
+  margin: 1rem 0;
+  color: #3c5aa6;
+  border-radius: 10px;
+
+  .buttons{
+    margin: 1rem;
+    display: flex;
+    justify-content: space-around;
+    .button{
+      border-radius: 5px;
+      padding: 5px;
+      color: #3c5aa6;
+      border: #f27e63 1px solid;
+      &:hover{
+        background-color: #979690;
+        color: #f27e63;
+      }
+    }
+  }
+}
