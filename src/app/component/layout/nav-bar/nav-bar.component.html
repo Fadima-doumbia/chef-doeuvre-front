@@ -29,7 +29,8 @@
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li><a class="dropdown-item list-lien" href="#" routerLink="/profil" routerLinkActive="active">Profil</a></li>
             <li *ngIf="isAdmin()"><a class="dropdown-item list-lien" href="#" routerLink="/admin-user" routerLinkActive="active">Admin</a></li>
-            <li><a class="dropdown-item list-lien" href="#" routerLink="/login" routerLinkActive="active">Déconnexion</a></li>
+            <!-- <li><a class="dropdown-item list-lien" href="#" routerLink="/login" routerLinkActive="active">Déconnexion</a></li> -->
+            <li><a class="dropdown-item list-lien" href="#" (click)="logout()" routerLinkActive="active">Déconnexion</a></li>
           </ul>
         </li>
       </ul>

@@ -22,6 +22,7 @@ export class EditProfilComponent implements OnInit {
   ) { }
 
   userForm = new FormGroup({
+    id : new FormControl(''),
     username : new FormControl(''),
     email : new FormControl(''),
     presentation : new FormControl('')

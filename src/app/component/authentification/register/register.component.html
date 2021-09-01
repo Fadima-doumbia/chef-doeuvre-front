@@ -1,7 +1,7 @@
 <div class="login-form text-center">
   <main class="form-signin">
     <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
-      <h1>Créer ton compte !</h1>
+      <h1>Créez votre compte !</h1>
 
       <div class="form-floating">
         <input
@@ -43,17 +43,35 @@
       </div>
 
       <div class="form-floating">
+        <input
+          type="tel"
+          class="form-control"
+          id="floatingInput"
+          placeholder=""
+          formControlName="number"
+        />
+        <label for="floatingInput">Telephone</label>
+      </div>
+
+      <div class="form-floating">
                 <select aria-label="Default select example" class="form-control"
                 id="floatingInput"formControlName="role">
                   <option selected>Selectionnez votre profil</option>
                   <!-- <option value="user">User</option> -->
                   <!-- <option value="moderator">Moderator</option> -->
                   <option value="admin">Admin</option>
-                  <option value="investisseur">Investisseur</option>
-                  <option value="entrepreneur">Entrepreneur</option>
+                  <option value="user">Investisseur</option>
+                  <option value="mod">Entrepreneur</option>
                 </select>
                 <label for="floatingInput">Role</label>
       </div>
+
+      <!-- <div class="form-group">
+        <label class="post-image">Image</label>
+        <input type="file" name="fileImage" class="form-control" placeholder="Title" accept="image/png, image/jpeg"
+          (change)="onSelectFile($event)">
+        <img [src]="imgURL" alt="" height="200" *ngIf="imgURL">
+      </div> -->
 
       <div class="form-floating">
         <input

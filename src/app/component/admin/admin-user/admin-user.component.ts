@@ -58,4 +58,10 @@ export class AdminUserComponent implements OnInit {
       }
     )
   }
+
+
+  toBack(event:any){//permet de revenir en haut
+    window.scrollTo(0,0);//permet de definir l'endroit exact (en px) pour revenir dans la page
+    event.preventDefault();
+  }
 }

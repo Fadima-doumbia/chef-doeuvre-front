@@ -64,7 +64,7 @@ export class ProjetService {
     return this.httpClient.put(`${this.baseUrl}/projets`, updateProjet);
   }
 
-//********************************************************************************************************************* */
+  //********************************************************************************************************************* */
 
   postProject(newProjet: Projet){
     return this.httpClient.post(`${this.baseUrl}/projets`, newProjet)

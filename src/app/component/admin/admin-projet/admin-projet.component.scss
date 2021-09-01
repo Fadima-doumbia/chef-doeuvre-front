@@ -62,7 +62,18 @@
     }
   }
 }
-
+.scrollTop{
+  background-color: #979690;
+  border: 1px solid salmon;
+  border-radius: 5px;
+  margin: 1rem 0;
+  height: 40px;
+  width: 100px;
+  &:hover{
+    background-color: #4b7af2;
+    color: salmon;
+  }
+}
 
 .buttonss{
   padding: 10px;

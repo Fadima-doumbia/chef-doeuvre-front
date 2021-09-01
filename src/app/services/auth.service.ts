@@ -48,21 +48,21 @@ export class AuthService {
     return null;
   }
   // ***************************************************************************************************************************
-    getToken(){
+  getToken(){
       const token:any =localStorage.getItem('TOKEN_APPLI');
       console.log(token)
       if(token){
         return token;
       }
-    }
+  }
   // ***************************************************************************************************************************
-    getCurrentUser(){
+  getCurrentUser(){
       const user_id:any =localStorage.getItem('USER_ID');
       if(user_id){
         return user_id;
       }
-    }
-    
+  }
+
   // ***************************************************************************************************************************
   // getToken(){
   //   const token =localStorage.getItem('TOKEN_APPLI')
@@ -103,14 +103,15 @@ export class AuthService {
   }
 
 // ***************************************************************************************************************************
+
   register(newUser: UserRequest) {
     return this.httpClient.post
     (`http://localhost:8080/api/auth/register`, newUser)
   }
-
+  
 // ***************************************************************************************************************************
   logout() {
     localStorage.removeItem('TOKEN_APPLI');
-    this.router.navigate(['/login']);
+    this.router.navigate(['/bye']);
   }
 }

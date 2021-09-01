@@ -1,35 +1,34 @@
+<!-- ********************************************************************************************************* -->
+<div class="container-fluid">
+  <form class="d-flex SEARCH" (ngSubmit)="onSubmit()" [formGroup]="searchForm">
+    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" formControlName="name">
+    <button class="btn btn-outline-success" type="submit">
+      <i class="fas fa-search"></i>
+    </button>
+  </form>
 
-  <!-- ********************************************************************************************************* -->
-  <div class="container-fluid">
-    <form class="d-flex SEARCH" (ngSubmit)="onSubmit()" [formGroup]="searchForm">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" formControlName="name">
-      <button class="btn btn-outline-success" type="submit">
-        <i class="fas fa-search"></i>
-      </button>
-    </form>
-
-    <div class="filtre">
-      <!-- <div class="form-check form-check-inline">
+  <div class="filtre">
+    <!-- <div class="form-check form-check-inline">
         <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
         <label class="form-check-label" for="inlineCheckbox1">Nom Prenom</label>
       </div> -->
-      <!-- <div class="form-check form-check-inline">
+    <!-- <div class="form-check form-check-inline">
         <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
         <label class="form-check-label" for="inlineCheckbox2">Secteur d'activité</label>
       </div> -->
-      <!-- <div class="form-check form-check-inline">
+    <!-- <div class="form-check form-check-inline">
         <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
         <label class="form-check-label" for="inlineCheckbox2">Pays</label>
       </div> -->
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-        <label class="form-check-label" for="inlineCheckbox2">Nom Projet</label>
-      </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+      <label class="form-check-label" for="inlineCheckbox2">Nom Projet</label>
     </div>
   </div>
-  <!-- ********************************************************************************************************* -->
-  <hr>
-  <!-- <div class="container">
+</div>
+<!-- ********************************************************************************************************* -->
+<hr>
+<!-- <div class="container">
     <table class="table">
       <thead>
         <tr>
@@ -53,52 +52,55 @@
       </tbody>
     </table>
   </div> -->
+<div>
+  <div class="projet">
+    <div class="list-projets" *ngFor="let projet of dataProject">
+      <div class="container conteneur">
+        <div class="entete">
+          <h2>Projet: <span>{{projet.name}}</span></h2>
+        </div>
+        <hr>
+        <div class="content">
+          <h4>Nom Entrepreneur: <span>{{ projet.entrepreneur }}</span></h4>
+          <h4>Email Entrepreneur: <span> nameEntrepreneur() </span></h4>
+          <h4>Date de Début: <span>{{ projet.dateD }}</span></h4>
+          <h4>Besoin: <span>{{ projet.besoin }}</span></h4>
+          <h4>Description: <span>{{ projet.description }}</span></h4>
+          <h4>UuserId: <span>{{ projet.userId }}</span></h4>
+        </div>
+        <div class="buttons">
+          <button type="button" class="bouton"><a [href]="test">Envoyer mail </a></button>
+          <!-- Button trigger modal -->
+          <button type="button" class="bouton" ngbTooltip="Plus d'infos" (click)="getUser(projet.userId)"
+            data-bs-toggle="modal" data-bs-target="#exampleModal">Entrepreneur</button>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Information de l'entrepreneur </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                ...
 
-<div class="projet">
-  <div class="list-projets" *ngFor="let projet of dataProject">
-    <div class="container conteneur">
-      <div class="entete">
-        <h2>Projet: <span>{{projet.name}}</span></h2>
-      </div>
-      <hr>
-      <div class="content">
-        <h4>Nom Entrepreneur: <span>{{ projet.entrepreneur }}</span></h4>
-        <h4>Email Entrepreneur: <span> nameEntrepreneur() </span></h4>
-        <h4>Date de Début: <span>{{ projet.dateD }}</span></h4>
-        <h4>Besoin: <span>{{ projet.besoin }}</span></h4>
-        <h4>Description: <span>{{  projet.description }}</span></h4>
-        <h4>UuserId: <span>{{  projet.userId }}</span></h4>
-      </div>
-      <div class="buttons">
-        <button  type="button" class="bouton"><a [href]="test">Envoyer mail </a></button>
-        <!-- Button trigger modal -->
-        <button type="button" class="bouton" ngbTooltip="Plus d'infos"  (click)="getUser(projet.userId)" data-bs-toggle="modal" data-bs-target="#exampleModal">Entrepreneur</button>
-      </div>
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content" >
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Information de l'entrepreneur  </h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              ...
-
-              <h4>Nom Entrepreneur: <span> {{dataUser?.username}} </span></h4>
-              <h4>Email Entrepreneur: <span> {{dataUser?.email}} </span></h4>
-              <a href={{dataUser?.email}}>Envoyer mail</a>
-              <ul>
-                <li>{{dataUser?.projects}}</li>
-              </ul>
-              ...
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                <h4>Nom Entrepreneur: <span> {{dataUser?.username}} </span></h4>
+                <h4>Email Entrepreneur: <span> {{dataUser?.email}} </span></h4>
+                <a href={{dataUser?.email}}>Envoyer mail</a>
+                <ul>
+                  <li>{{dataUser?.projects}}</li>
+                </ul>
+                ...
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+  <button class="scrollTop" (click)="toBack($event)">Haut</button>
 </div>

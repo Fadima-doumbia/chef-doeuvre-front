@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
@@ -17,7 +18,8 @@ export class NavBarComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -51,5 +53,10 @@ export class NavBarComponent implements OnInit {
     // console.log(this.authService.getUserTokenRole().roles[0].authority)
     // console.log(this.authService.getUserTokenRole().roles[0].authority == "ROLE_ENTREPRENEUR")
     return(this.authService.getUserTokenRole().roles[0].authority == "ROLE_ENTREPRENEUR")
+  }
+
+  logout() {
+    localStorage.removeItem('TOKEN_APPLI');
+    this.router.navigate(['/bye']);
   }
 }

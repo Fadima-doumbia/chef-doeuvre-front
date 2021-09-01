@@ -50,7 +50,6 @@ export class AdminProjetComponent implements OnInit {
   //   )
   // }
 
-
   deleteProj(id:any) {
     confirm('Voulez supprimer le projet');
     // id = this.route.snapshot.paramMap.get("id")
@@ -60,5 +59,10 @@ export class AdminProjetComponent implements OnInit {
         console.log('delete reussie');
       }
     )
+  }
+
+  toBack(event:any){//permet de revenir en haut
+    window.scrollTo(0,0);//permet de definir l'endroit exact (en px) pour revenir dans la page
+    event.preventDefault();
   }
 }

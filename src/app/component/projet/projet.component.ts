@@ -23,7 +23,7 @@ export class ProjetComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-      const id = this.authService.getCurrentUser();
+    const id = this.authService.getCurrentUser();
     this.projectSubcription = this.userService.getById(id)
       .subscribe((user:User) => {
           this.user = user;
