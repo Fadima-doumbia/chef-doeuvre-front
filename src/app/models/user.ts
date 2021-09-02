@@ -10,5 +10,4 @@ export class User{
   projects?: Array<Projet>;
   presentation?: string;
   number?: number;
-
  }

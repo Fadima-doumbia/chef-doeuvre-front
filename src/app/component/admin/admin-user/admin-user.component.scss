@@ -127,8 +127,8 @@ table .display{
   justify-content: space-around;
   .list-projets{
     height: auto;
-    min-height: 300px;
-    width: 30%;
+    min-height: 200px;
+    width: 250px;
     border: 1px solid salmon;
     background-color: rgb(238, 234, 234);
     border-radius: 10px;
@@ -153,18 +153,6 @@ table .display{
         border-radius: 5px;
       }
     }
-  }
-}
-.scrollTop{
-  background-color: #979690;
-  border: 1px solid salmon;
-  border-radius: 5px;
-  margin: 1rem 0;
-  height: 40px;
-  width: 100px;
-  &:hover{
-    background-color: #4b7af2;
-    color: salmon;
   }
 }
 

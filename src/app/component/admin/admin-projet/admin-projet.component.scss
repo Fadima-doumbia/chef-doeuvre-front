@@ -35,7 +35,7 @@
   .list-projets{
     height: auto;
     min-height: 300px;
-    width: 30%;
+    width: 300px;
     border: 1px solid salmon;
     background-color: rgb(238, 234, 234);
     border-radius: 10px;
@@ -51,7 +51,6 @@
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
-      // margin: 10px;
       button{
         color: #3c5aa6;
         border: #f27e63 1px solid;
@@ -60,18 +59,6 @@
         border-radius: 5px;
       }
     }
-  }
-}
-.scrollTop{
-  background-color: #979690;
-  border: 1px solid salmon;
-  border-radius: 5px;
-  margin: 1rem 0;
-  height: 40px;
-  width: 100px;
-  &:hover{
-    background-color: #4b7af2;
-    color: salmon;
   }
 }
 

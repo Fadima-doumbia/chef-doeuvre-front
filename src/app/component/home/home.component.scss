@@ -31,13 +31,24 @@
       width: 40%;
       height: auto;
       border: 1px solid #f27e63;
-      p{
+      .title{
         padding: 1rem;
+        color:#3c5aa6;
+        .text{
+          color: #4b7af2;
+        }
       }
       .form-control{
         border: none;
         font-size: x-small;
       }
+    }
+  }
+  .title{
+    padding: 1rem;
+    color:#3c5aa6;
+    .text{
+      color: #4b7af2;
     }
   }
 }

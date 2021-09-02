@@ -52,7 +52,7 @@ export class NavBarComponent implements OnInit {
   isEntrepreneur(){
     // console.log(this.authService.getUserTokenRole().roles[0].authority)
     // console.log(this.authService.getUserTokenRole().roles[0].authority == "ROLE_ENTREPRENEUR")
-    return(this.authService.getUserTokenRole().roles[0].authority == "ROLE_ENTREPRENEUR")
+    return(this.authService.getUserTokenRole().roles[0].authority == "ROLE_MODERATOR")
   }
 
   logout() {
