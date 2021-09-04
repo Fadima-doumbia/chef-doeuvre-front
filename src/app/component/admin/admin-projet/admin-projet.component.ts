@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Projet } from 'src/app/models/projet.model';
@@ -14,17 +15,18 @@ import { UserService } from 'src/app/services/user.service';
 export class AdminProjetComponent implements OnInit {
   dataProject? : Projet[];
   projectSub?: Subscription;
-  // dataUser: User | undefined;
-
 
   constructor(
     private projetService: ProjetService,
-    // private userService: UserService,
     private route: ActivatedRoute
   ) { }
 
+  searchForm = new FormGroup({
+    name: new FormControl('')
+  });
+
   ngOnInit(): void {
-    this.getProject();
+    this.getProjects();
     // Pour charger et mettre à jour tout le temps
     this.projectSub = this.projetService.projectSubject.subscribe(
       (resp: Projet[]) => {
@@ -33,7 +35,7 @@ export class AdminProjetComponent implements OnInit {
     )
   }
 
-  getProject() {
+  getProjects() {
     this.projetService.getAllProject().subscribe(
       (resp:Projet[]) => {
         this.dataProject = resp;
@@ -41,15 +43,14 @@ export class AdminProjetComponent implements OnInit {
     )
   }
 
-  // getUser(id:any){
-  //   this.userService.getUserById(id).subscribe(
-  //     (user:User) => {
-  //       this.dataUser = user;
-  //       console.log(this.dataUser);
-  //     }
-  //   )
-  // }
-
+  getProject() {
+    this.projectSub = this.projetService.searchProject(this.searchForm.value).subscribe(
+      (resp: Projet[]) => {
+        this.dataProject = resp;
+        console.log(this.dataProject)
+      }
+    )
+  }
 
   deleteProj(id:any) {
     confirm('Voulez supprimer le projet');
@@ -60,5 +61,14 @@ export class AdminProjetComponent implements OnInit {
         console.log('delete reussie');
       }
     )
+  }
+
+  onSubmit() {
+    this.getProject();
+  }
+
+  toBack(event:any){//permet de revenir en haut
+    window.scrollTo(0,0);//permet de definir l'endroit exact (en px) pour revenir dans la page
+    event.preventDefault();
   }
 }

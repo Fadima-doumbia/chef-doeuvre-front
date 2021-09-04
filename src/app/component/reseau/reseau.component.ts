@@ -56,8 +56,12 @@ export class ReseauComponent implements OnInit {
     )
   }
 
-
   onSubmit() {
     this.getProject();
+  }
+
+  toBack(event:any){//permet de revenir en haut
+    window.scrollTo(0,0);//permet de definir l'endroit exact (en px) pour revenir dans la page
+    event.preventDefault();
   }
 }

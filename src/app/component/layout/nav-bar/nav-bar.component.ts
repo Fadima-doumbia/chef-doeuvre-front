@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
@@ -17,7 +18,8 @@ export class NavBarComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -28,13 +30,13 @@ export class NavBarComponent implements OnInit {
 
   getUser(){
     const id = this.authService.getUserIdToken();
-    // console.log(id)
+    console.log(id)
     if(id){
       this.userService.getById(id).subscribe((user: User) => {
         this.user = user
-        // console.log(user)
+        console.log(user)
         this.roleObj = user.roles
-        // console.log(this.roleObj[0].name) ;
+        console.log(this.roleObj[0].name) ;
          this.role = this.roleObj[0].name;
          return this.role;
       });
@@ -42,14 +44,19 @@ export class NavBarComponent implements OnInit {
   }
 
   isAdmin(){
-    // console.log(this.authService.getUserTokenRole().roles[0].authority)
-    // console.log(this.authService.getUserTokenRole().roles[0].authority == 'ROLE_ADMIN')
+    console.log(this.authService.getUserTokenRole().roles[0].authority)
+    console.log(this.authService.getUserTokenRole().roles[0].authority == 'ROLE_ADMIN')
     return(this.authService.getUserTokenRole().roles[0].authority == 'ROLE_ADMIN')
   }
 
   isEntrepreneur(){
-    // console.log(this.authService.getUserTokenRole().roles[0].authority)
-    // console.log(this.authService.getUserTokenRole().roles[0].authority == "ROLE_ENTREPRENEUR")
-    return(this.authService.getUserTokenRole().roles[0].authority == "ROLE_ENTREPRENEUR")
+    console.log(this.authService.getUserTokenRole().roles[0].authority)
+    console.log(this.authService.getUserTokenRole().roles[0].authority == "ROLE_MODERATOR")
+    return(this.authService.getUserTokenRole().roles[0].authority == "ROLE_MODERATOR")
+  }
+
+  logout() {
+    localStorage.removeItem('TOKEN_APPLI');
+    this.router.navigate(['/bye']);
   }
 }

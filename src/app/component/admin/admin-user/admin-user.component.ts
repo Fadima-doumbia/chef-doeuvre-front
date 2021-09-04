@@ -30,9 +30,9 @@ export class AdminUserComponent implements OnInit {
 
   tolowerRole(roleName:any){
     const role:any = {
-      ROLE_ENTREPRENEUR: 'entrepreneur',
-      ROLE_INVESTISSEUR: 'investisseur',
-      ROLE_ADMIN: 'admin',
+        ROLE_MODERATOR: 'entrepreneur',
+        ROLE_USER: 'investisseur',
+        ROLE_ADMIN: 'admin',
     }
     return role[roleName];
   }
@@ -51,11 +51,16 @@ export class AdminUserComponent implements OnInit {
   getUsers() {
     this.userService.getAllUser().subscribe(
       (users:User[]) => {
-        const roles = ["ROLE_ENTREPRENEUR", "ROLE_INVESTISSEUR"];
+        const roles = ["ROLE_MODERATOR", "ROLE_USER"];
         this.dataUsers = users.filter((data:User) =>
         !!data.roles?.find((role:any) => roles.includes(role.name)));
         console.log(this.dataUsers);
       }
     )
+  }
+
+  toBack(event:any){//permet de revenir en haut
+    window.scrollTo(0,0);//permet de definir l'endroit exact (en px) pour revenir dans la page
+    event.preventDefault();
   }
 }

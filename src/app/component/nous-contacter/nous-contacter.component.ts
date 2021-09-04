@@ -20,6 +20,7 @@ export class NousContacterComponent implements OnInit {
     e.preventDefault();
     emailjs.sendForm('service_3kux9lo', 'template_xgvfmet', e.target as HTMLFormElement, 'user_Yhs3oSCA7VZeT9wdLkfcM')
       .then((result: EmailJSResponseStatus) => {
+        alert('Message envoyé avec succès');
         console.log(result.text);
       }, (error) => {
         console.log(error.text);

@@ -11,7 +11,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class HomeComponent implements OnInit {
   user: User | undefined;
-  
+
   constructor(
     private userService: UserService,
     private authService: AuthService
@@ -30,8 +30,8 @@ export class HomeComponent implements OnInit {
 
   tolowerRole(roleName:any){
     const role:any = {
-      ROLE_ENTREPRENEUR: 'entrepreneur',
-      ROLE_INVESTISSEUR: 'investisseur',
+      ROLE_MODERATOR: 'entrepreneur',
+      ROLE_USER: 'investisseur',
       ROLE_ADMIN: 'admin',
     }
     return role[roleName];

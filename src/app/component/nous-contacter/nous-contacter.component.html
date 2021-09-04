@@ -10,7 +10,7 @@
 </form> -->
 
 <h2 class="title">Formulaire de Contact</h2>
-<form>
+<form (submit)="sendEmail($event)">
   <input type="hidden" name="contact_number">
   <div class="mb-3">
     <label for="exampleFormControlInput1" class="form-label">Nom Prenom</label>

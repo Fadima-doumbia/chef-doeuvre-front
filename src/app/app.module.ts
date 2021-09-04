@@ -17,8 +17,7 @@ import { HomeAdminComponent } from './component/admin/home-admin/home-admin.comp
 import { RegisterComponent } from './component/authentification/register/register.component';
 import { EditProfilComponent } from './component/edit-profil/edit-profil.component';
 import { ProjetComponent } from './component/projet/projet.component';
-import { UserComponent } from './user/user.component';
-import { ListUserComponent } from './user/list-user/list-user.component';
+
 import { AuthInterceptor } from './component/interceptor/auth.interceptor';
 import { LayoutComponent } from './component/layout/layout.component';
 import { EditProjetComponent } from './component/projet/edit-projet/edit-projet.component';
@@ -27,6 +26,8 @@ import { AdminUserComponent } from './component/admin/admin-user/admin-user.comp
 import { EditUserComponent } from './component/edit-user/edit-user.component';
 import { CardComponent } from './component/projet/card/card.component';
 import { NousContacterComponent } from './component/nous-contacter/nous-contacter.component';
+import { ByeComponent } from './component/authentification/bye/bye.component';
+import { AboutComponent } from './about/about.component';
 
 
 @NgModule({
@@ -44,14 +45,14 @@ import { NousContacterComponent } from './component/nous-contacter/nous-contacte
     RegisterComponent,
     HomeAdminComponent,
     EditProfilComponent,
-    UserComponent,
-    ListUserComponent,
     CardComponent,
     LayoutComponent,
     AdminProjetComponent,
     AdminUserComponent,
     EditUserComponent,
-    NousContacterComponent
+    NousContacterComponent,
+    ByeComponent,
+    AboutComponent
   ],
 
   imports: [
