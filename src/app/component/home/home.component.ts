@@ -30,9 +30,9 @@ export class HomeComponent implements OnInit {
 
   tolowerRole(roleName:any){
     const role:any = {
-      ROLE_MODERATOR: 'entrepreneur',
-      ROLE_USER: 'investisseur',
-      ROLE_ADMIN: 'admin',
+      ROLE_MODERATOR: 'Entrepreneur',
+      ROLE_USER: 'Investisseur',
+      ROLE_ADMIN: 'Admin',
     }
     return role[roleName];
   }

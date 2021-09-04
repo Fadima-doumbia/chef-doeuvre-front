@@ -30,13 +30,13 @@ export class NavBarComponent implements OnInit {
 
   getUser(){
     const id = this.authService.getUserIdToken();
-    // console.log(id)
+    console.log(id)
     if(id){
       this.userService.getById(id).subscribe((user: User) => {
         this.user = user
-        // console.log(user)
+        console.log(user)
         this.roleObj = user.roles
-        // console.log(this.roleObj[0].name) ;
+        console.log(this.roleObj[0].name) ;
          this.role = this.roleObj[0].name;
          return this.role;
       });

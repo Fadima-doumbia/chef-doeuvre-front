@@ -11,10 +11,6 @@ import { AuthService } from '../../../services/auth.service';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
-  userFile:any;
-  imagePath:any;
-  imgURL:any;
-
   registerForm = new FormGroup({
     email: new FormControl('admin@mail'),
     username: new FormControl('admin'),
@@ -30,6 +26,41 @@ export class RegisterComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {}
+
+  onSubmit() {
+    // const formValues = this.registerForm?.value;
+    // console.log(formValues);
+    // console.log("ici")
+    const formValues = this.registerForm?.value;
+    formValues.role = [formValues.role];
+    console.log(formValues);
+    console.log("ici")
+    this.authService.register(formValues).subscribe(
+      (user: any) => {
+        console.log('reussit' + user);
+        this.router.navigate(['/login']);
+      },
+      (error) => {
+        console.log('faild');
+        console.log(error);
+      }
+    );
+  }
+}
+  // onSubmit() {
+  //   const formValues = this.registerForm?.value;
+  //   console.log(formValues);
+  //   this.authService.register(formValues).subscribe(
+  //     (resp: any) => {
+  //       console.log('reussit');
+  //       this.router.navigate(['/login']);
+  //     },
+  //     (error) => {
+  //       console.log('faild');
+  //       console.log(error);
+  //     }
+  //   );
+  // }
 
   // onSelectFile(event:any) {
   //   if (event.target.files.length > 0) {
@@ -63,33 +94,3 @@ export class RegisterComponent implements OnInit {
   // }
 
 
-  onSubmit() {
-    const formValues = this.registerForm?.value;
-    console.log(formValues);
-    console.log("ici")
-    this.authService.register(formValues).subscribe(
-      (user: any) => {
-        console.log('reussit' + user);
-        this.router.navigate(['/login']);
-      },
-      (error) => {
-        console.log('faild');
-        console.log(error);
-      }
-    );
-  }
-  // onSubmit() {
-  //   const formValues = this.registerForm?.value;
-  //   console.log(formValues);
-  //   this.authService.register(formValues).subscribe(
-  //     (resp: any) => {
-  //       console.log('reussit');
-  //       this.router.navigate(['/login']);
-  //     },
-  //     (error) => {
-  //       console.log('faild');
-  //       console.log(error);
-  //     }
-  //   );
-  // }
-}

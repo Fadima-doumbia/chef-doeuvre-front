@@ -3,7 +3,7 @@ export class UserRequest{
   username?: string;
   email?: string;
   password?: string;
-  role?: string;
+  role?: Array<String>;
   number?: number;
   presentation?: string;
 

@@ -16,7 +16,7 @@ export class AuthGuard implements CanActivate {
         return true;
       } else {
         console.log('NOk Guard');
-        this.router.navigate(['/login']);
+        this.router.navigate(['/bye']);
         return false;
       }
   }

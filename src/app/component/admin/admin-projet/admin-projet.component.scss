@@ -1,41 +1,13 @@
-.container{
-  .bouton-group{
-    width: 100%;
-    padding: 10px 0;
-    .bouton:active {
-      background: #4b7af2 !important;
-      color: #fff;
-      border-color: #3c5aa6;
-    }
-  }
+.searchbar{
+  margin-top: 1rem;
 }
-.container-fluid{
-  .SEARCH{
-    border: 1px solid #3c5aa6;
-    margin: 10px 0;
-    padding: 20px;
-  }
-  hr{
-    color: #979690;
-    font-size: medium;
-  }
-  .filtre{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin: 10px 0;
-  }
-}
-
-
 .projet{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   .list-projets{
-    height: auto;
-    min-height: 300px;
-    width: 300px;
+    max-width: 300px;
+    min-width: 250px;
     border: 1px solid salmon;
     background-color: rgb(238, 234, 234);
     border-radius: 10px;
@@ -46,29 +18,15 @@
         font-size: medium;
       }
     }
-    .buttons{
-      padding: 10px;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      button{
-        color: #3c5aa6;
-        border: #f27e63 1px solid;
-        padding: 5px;
-        margin: 5px;
-        border-radius: 5px;
-      }
-    }
   }
 }
 
-.buttonss{
+.buttons{
   padding: 10px;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-
-  .button{
+  button{
     color: #3c5aa6;
     border: #f27e63 1px solid;
     padding: 5px;
