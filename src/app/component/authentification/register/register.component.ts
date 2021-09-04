@@ -28,13 +28,8 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit() {
-    // const formValues = this.registerForm?.value;
-    // console.log(formValues);
-    // console.log("ici")
     const formValues = this.registerForm?.value;
     formValues.role = [formValues.role];
-    console.log(formValues);
-    console.log("ici")
     this.authService.register(formValues).subscribe(
       (user: any) => {
         console.log('reussit' + user);
@@ -47,50 +42,3 @@ export class RegisterComponent implements OnInit {
     );
   }
 }
-  // onSubmit() {
-  //   const formValues = this.registerForm?.value;
-  //   console.log(formValues);
-  //   this.authService.register(formValues).subscribe(
-  //     (resp: any) => {
-  //       console.log('reussit');
-  //       this.router.navigate(['/login']);
-  //     },
-  //     (error) => {
-  //       console.log('faild');
-  //       console.log(error);
-  //     }
-  //   );
-  // }
-
-  // onSelectFile(event:any) {
-  //   if (event.target.files.length > 0) {
-  //     const file = event.target.files[0];
-  //     this.userFile = file;
-  //     var reader = new FileReader();
-  //     this.imagePath = file;
-  //     reader.readAsDataURL(file);
-  //     reader.onload = (_event) => {
-  //       this.imgURL = reader.result;
-  //     }
-  //   }
-  // }
-
-  // onSubmit() {
-  //   const formData = new FormData();
-  //   const formValues = this.registerForm?.value;
-  //   formData.append('file', this.userFile);
-  //   formData.append("user", new Blob([JSON.stringify(formValues)], { type: "application/json" }))
-  //   console.log(formValues);
-  //   this.authService.register(formData).subscribe(
-  //     (resp: any) => {
-  //       console.log('reussit' + resp);
-  //       this.router.navigate(['/login']);
-  //     },
-  //     (error) => {
-  //       console.log('faild');
-  //       console.log(error);
-  //     }
-  //   );
-  // }
-
-

@@ -16,6 +16,9 @@ import { AdminProjetComponent } from './component/admin/admin-projet/admin-proje
 import { AdminUserComponent } from './component/admin/admin-user/admin-user.component';
 import { NousContacterComponent } from './component/nous-contacter/nous-contacter.component';
 import { ByeComponent } from './component/authentification/bye/bye.component';
+import { CguComponent } from './component/layout/footer/cgu/cgu.component';
+import { PolitiqueConfidentialiteComponent } from './component/layout/footer/politique-confidentialite/politique-confidentialite.component';
+import { AboutComponent } from './component/layout/footer/about/about.component';
 
 const routes: Routes = [
 
@@ -45,6 +48,12 @@ const routes: Routes = [
       { path: 'add-admin',  component: AddAdminComponent},
       { path: 'admin-projet',  component: AdminProjetComponent},
       { path: 'admin-user',  component: AdminUserComponent},
+
+      //*******************************Footer************************************
+
+      { path: 'cgu',  component: CguComponent},
+      { path: 'pc',  component: PolitiqueConfidentialiteComponent},
+      { path: 'about',  component: AboutComponent},
 
       // ***********************************************************************
 

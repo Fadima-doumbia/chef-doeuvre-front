@@ -30,13 +30,10 @@ export class NavBarComponent implements OnInit {
 
   getUser(){
     const id = this.authService.getUserIdToken();
-    console.log(id)
     if(id){
       this.userService.getById(id).subscribe((user: User) => {
         this.user = user
-        console.log(user)
         this.roleObj = user.roles
-        console.log(this.roleObj[0].name) ;
          this.role = this.roleObj[0].name;
          return this.role;
       });
@@ -44,14 +41,10 @@ export class NavBarComponent implements OnInit {
   }
 
   isAdmin(){
-    // console.log(this.authService.getUserTokenRole().roles[0].authority)
-    // console.log(this.authService.getUserTokenRole().roles[0].authority == 'ROLE_ADMIN')
     return(this.authService.getUserTokenRole().roles[0].authority == 'ROLE_ADMIN')
   }
 
   isEntrepreneur(){
-    // console.log(this.authService.getUserTokenRole().roles[0].authority)
-    // console.log(this.authService.getUserTokenRole().roles[0].authority == "ROLE_ENTREPRENEUR")
     return(this.authService.getUserTokenRole().roles[0].authority == "ROLE_MODERATOR")
   }
 

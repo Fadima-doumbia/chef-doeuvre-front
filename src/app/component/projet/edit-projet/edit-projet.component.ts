@@ -39,10 +39,8 @@ export class EditProjetComponent implements OnInit {
 
   updateProj() {
     const formValues = this.projetForm?.value;
-    console.log(formValues);
     this.projetService.updateProjet(formValues).subscribe(
       (project: Projet) => {
-        console.log(project);
         console.log('update projet reussie');
         this.router.navigate(['/projet']);
       }

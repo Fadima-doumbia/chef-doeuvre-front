@@ -38,10 +38,8 @@ export class AdminUserComponent implements OnInit {
   }
 
   deleteUser(user: any) {
-    console.log(user);
     this.userService.delete(user.id).subscribe(
       (user: User) => {
-        console.log(user);
         this.dataUser = this.dataUser?.filter((data:any) => data.id != user.id);
         console.log('delete reussit');
       }
@@ -54,7 +52,6 @@ export class AdminUserComponent implements OnInit {
         const roles = ["ROLE_MODERATOR", "ROLE_USER"];
         this.dataUsers = users.filter((data:User) =>
         !!data.roles?.find((role:any) => roles.includes(role.name)));
-        console.log(this.dataUsers);
       }
     )
   }

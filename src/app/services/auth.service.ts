@@ -12,11 +12,9 @@ import { UserService } from './user.service';
 })
 export class AuthService {
   dev = false;
-  URL_DEV = 'http://localhost:8080/api/auth';
+  baseUrl = 'http://localhost:8080/api/auth';
   API_URL?: string
   private jwtHelper = new JwtHelperService();
-
-
 
   constructor(
     private httpClient: HttpClient,
@@ -26,12 +24,11 @@ export class AuthService {
   }//seul le dev se connecte avec le localhost tout les autres users utilisent le URL_TEST pour acceder au site
   // ***************************************************************************************************************************
   login(user: UserRequest) {
-    return this.httpClient.post(`http://localhost:8080/api/auth/login`, user)
+    return this.httpClient.post(`${this.baseUrl}/login`, user)
     .pipe(
       map((resp: any) => {
         localStorage.setItem('TOKEN_APPLI', resp.accessToken);
         localStorage.setItem('USER_ID', resp.id);
-        // console.log(localStorage.setItem('TOKEN_APPLI', resp.accessToken));
         console.log(resp.id);
         console.log('Token Save');
         return resp;
@@ -64,15 +61,6 @@ export class AuthService {
   }
 
   // ***************************************************************************************************************************
-  // getToken(){
-  //   const token =localStorage.getItem('TOKEN_APPLI')
-  //   console.log(token)
-  //   if(token){
-  //     return token;
-  //   }
-  // }
-
-  // ***************************************************************************************************************************
   getUserId(){
     const helper = new JwtHelperService;
     const decodedToken = helper.decodeToken(this.getToken());
@@ -99,14 +87,14 @@ export class AuthService {
   // ***************************************************************************************************************************
   newAdmin(newAdmin: UserRequest) {
     return this.httpClient.post
-    ('http://localhost:8080/api/auth/register', newAdmin)
+    (`${this.baseUrl}/register`, newAdmin)
   }
 
 // ***************************************************************************************************************************
 
   register(newUser: UserRequest) {
     return this.httpClient.post
-    (`http://localhost:8080/api/auth/register`, newUser)
+    (`${this.baseUrl}/register`, newUser)
   }
 
 // ***************************************************************************************************************************

@@ -1,9 +1,9 @@
-<div class="login-form text-center">
+<div class="login-form text-center edit-container">
   <main class="form-signin">
     <form class="container" (ngSubmit)="updateProj()" [formGroup]="projetForm">
       <h1>Modifiez Votre projet !</h1>
 
-      <div class="form-floating">
+      <div class="form-floating input-div">
         <input type="number"
                 class="form-control"
                 id="floatingInput"
@@ -12,7 +12,7 @@
         <label for="floatingInput">id</label>
       </div>
 
-      <div class="form-floating">
+      <div class="form-floating input-div">
         <input type="text"
                 class="form-control"
                 id="floatingInput"
@@ -20,7 +20,7 @@
                 formControlName="name">
         <label for="floatingInput">nom</label>
       </div>
-      <div class="form-floating">
+      <div class="form-floating input-div">
         <input type="text"
                 class="form-control"
                 id="floatingInput"
@@ -28,7 +28,7 @@
                 formControlName="description">
         <label for="floatingInput">description</label>
       </div>
-      <div class="form-floating">
+      <div class="form-floating input-div">
         <input type="text"
                 class="form-control"
                 id="floatingInput"
@@ -36,7 +36,7 @@
                 formControlName="entrepreneur">
         <label for="floatingInput">auteur</label>
       </div>
-      <div class="form-floating">
+      <div class="form-floating input-div">
         <input type="text"
                 class="form-control"
                 id="floatingInput"
@@ -45,7 +45,7 @@
         <label for="floatingInput">besoin</label>
       </div>
 
-      <div class="form-floating">
+      <div class="form-floating input-div">
         <input type="date"
                 class="form-control"
                 id="floatingInput"

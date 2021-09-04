@@ -1,11 +1,9 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
 import { Projet } from '../../models/projet.model';
-import { ProjetService } from '../../services/projet.service';
 
 @Component({
   selector: 'app-projet',
@@ -28,7 +26,6 @@ export class ProjetComponent implements OnInit {
       .subscribe((user:User) => {
           this.user = user;
           this.dataProject = user.projects;//je transfert les projets dans mon tableau
-          console.log(user);
       }
     )
   }
