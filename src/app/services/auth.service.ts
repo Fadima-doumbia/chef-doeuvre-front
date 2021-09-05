@@ -20,8 +20,10 @@ export class AuthService {
     private httpClient: HttpClient,
     private router: Router,
     private userService: UserService
-  ) {// this.API_URL = this.dev ? this.URL_DEV : this.URL_TEST;//pour dire si le dev utilise son ordinateur ou pas. si c'est le cas on utilise le localhost sinon on utilise l'url
-  }//seul le dev se connecte avec le localhost tout les autres users utilisent le URL_TEST pour acceder au site
+  ) {
+    // this.API_URL = this.dev ? this.URL_DEV : this.URL_TEST;//pour dire si le dev utilise son ordinateur ou pas. si c'est le cas on utilise le localhost sinon on utilise l'url
+  }
+  //seul le dev se connecte avec le localhost tout les autres users utilisent le URL_TEST pour acceder au site
   // ***************************************************************************************************************************
   login(user: UserRequest) {
     return this.httpClient.post(`${this.baseUrl}/login`, user)
