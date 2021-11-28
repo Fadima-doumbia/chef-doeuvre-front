@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { User } from 'src/app/models/user';
 import { UserRequest } from 'src/app/payload/user.request';
 import { AuthService } from '../../../services/auth.service';
 
@@ -17,11 +16,15 @@ export class RegisterComponent implements OnInit {
     presentation: new FormControl('admin'),
     number: new FormControl(12345),
     role : new FormControl('', Validators.required),
-    password: new FormControl('user1234', [
+    password: new FormControl('User123@', [
       Validators.required,
-      Validators.minLength(4),
+      Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)
     ])
   });
+
+  get password(){
+    return this.registerForm.get("password");
+  }
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -29,7 +32,9 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     const formValues = this.registerForm?.value;
+    console.log(formValues)
     formValues.role = [formValues.role];
+    console.log(formValues.role)
     this.authService.register(formValues).subscribe(
       (user: any) => {
         console.log('reussit', user);

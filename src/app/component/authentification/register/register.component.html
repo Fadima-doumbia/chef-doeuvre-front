@@ -76,10 +76,18 @@
               registerForm.get('password')?.invalid
           }"
           id="floatingInput"
-          placeholder=""
+          placeholder="password"
           formControlName="password"
         />
         <label for="floatingInput">Mot de passe</label>
+        <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="error">
+          <span *ngIf="password?.errors?.required">
+            Ce champs est obligatoire
+          </span>
+          <span *ngIf="password?.errors?.pattern">
+            Mot de passe doit contenir minimum 8 caractères, 1 majuscule, 1 minuscule et 1 caractère spécial.
+          </span>
+        </div>
       </div>
 
       <button
