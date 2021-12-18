@@ -96,7 +96,7 @@ export class AuthService {
 
   register(newUser: UserRequest) {
     return this.httpClient.post
-    (`${this.baseUrl}/register`, newUser)
+    (`http://localhost:8080/api/auth/register`, newUser)
   }
 
 // ***************************************************************************************************************************

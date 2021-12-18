@@ -44,11 +44,6 @@ export class AddProjetComponent implements OnInit {
     console.log('destroy component project')
   }
 
-  addphoto(event:any){
-    this.selectFile = event.target.files[0];
-   // console.log(this.selectFile);
-  }
-
   onSubmit() {
     const formValues:any = this.projetForm?.value;
     console.log(formValues);

@@ -51,3 +51,44 @@ export class EditProfilComponent implements OnInit {
   }
 }
 
+/*
+
+  getUser(){
+    const id = this.authService.getUserIdToken();
+    if(id){
+      this.userService.getById(id).subscribe((user: User) => {
+        this.user = user
+        console.log(user)
+      });
+    }
+  }
+
+
+
+  updateUser() {
+    const id = this.authService.getUserIdToken();
+    if(id){
+      this.userService.getById(id).subscribe((user: User) => {
+        this.user = user
+        console.log(user)
+        this.userService.updateUser(user).subscribe(
+          (user: User) => {
+            console.log(user);
+            this.router.navigate(['/home']);
+            console.log("update profil reussie");
+          }
+        )
+      });
+    }
+    const formValues = this.userForm?.value;
+    console.log(formValues);
+    this.userService.updateUser(formValues).subscribe(
+      (user: User) => {
+        console.log(user);
+        this.router.navigate(['/home']);
+        console.log("update profil reussie");
+      }
+    )
+  }
+*/
+

@@ -48,7 +48,7 @@ export class UserService {
   }
 
   updateUser(updateUser: User) {
-    return this.httpClient.put(`${this.baseUrl}/update`, updateUser);
+    return this.httpClient.put(`${this.baseUrl}/modif`, updateUser);
   }
 
   delete(id : number){
