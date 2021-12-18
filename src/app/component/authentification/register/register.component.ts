@@ -15,6 +15,7 @@ export class RegisterComponent implements OnInit {
   registerForm = new FormGroup({
     email: new FormControl('admin@mail'),
     username: new FormControl('admin'),
+    presentation: new FormControl('presentation'),
     role : new FormControl('', Validators.required),
     password: new FormControl('User123@', [
       Validators.required,
@@ -60,40 +61,20 @@ export class RegisterComponent implements OnInit {
   //   );
   // }
 
-  onSubmit() {
-    const formValues = this.registerForm?.value;
-    console.log(formValues)
-    formValues.role = [formValues.role];
-    console.log(formValues.role)
-    this.authService.register(formValues).subscribe(
-      (user: any) => {
-        console.log('reussit', user);
+  // onSubmit() {
+  //   const formValues = this.registerForm?.value;
+  //   console.log(formValues)
+  //   formValues.role = [formValues.role];
+  //   console.log(formValues.role)
+  //   this.authService.register(formValues).subscribe(
+  //     (user: any) => {
+  //       console.log('reussit', user);
     // formValues.role = [formValues.role];
     // console.log(formValues);
     // console.log("ici")
     // this.authService.register(formValues).subscribe(
     //   (user: any) => {
     //     console.log('reussit',  user);
-        this.router.navigate(['/login']);
-      },
-      (error) => {
-        console.log('faild');
-        console.log(error);
-      }
-    );
-  }
-
-
-
-
-
-
-  // onSubmit() {
-  //   const formValues = this.registerForm?.value;
-  //   console.log(formValues);
-  //   this.authService.register(formValues).subscribe(
-  //     (resp: any) => {
-  //       console.log('reussit');
   //       this.router.navigate(['/login']);
   //     },
   //     (error) => {
@@ -102,4 +83,24 @@ export class RegisterComponent implements OnInit {
   //     }
   //   );
   // }
+
+
+
+
+
+
+  onSubmit() {
+    const formValues = this.registerForm?.value;
+    console.log(formValues);
+    this.authService.register(formValues).subscribe(
+      (resp: any) => {
+        console.log('reussit');
+        this.router.navigate(['/login']);
+      },
+      (error) => {
+        console.log('faild');
+        console.log(error);
+      }
+    );
+  }
 }
