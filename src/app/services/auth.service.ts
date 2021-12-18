@@ -26,7 +26,8 @@ export class AuthService {
   //seul le dev se connecte avec le localhost tout les autres users utilisent le URL_TEST pour acceder au site
   // ***************************************************************************************************************************
   login(user: UserRequest) {
-    return this.httpClient.post(`${this.baseUrl}/login`, user)
+    // return this.httpClient.post(`${this.baseUrl}/login`, user)
+    return this.httpClient.post(`http://localhost:8080/api/auth/login`, user)
     .pipe(
       map((resp: any) => {
         localStorage.setItem('TOKEN_APPLI', resp.accessToken);
@@ -61,6 +62,15 @@ export class AuthService {
         return user_id;
       }
   }
+
+  // ***************************************************************************************************************************
+  // getToken(){
+  //   const token =localStorage.getItem('TOKEN_APPLI')
+  //   console.log(token)
+  //   if(token){
+  //     return token;
+  //   }
+  // }
 
   // ***************************************************************************************************************************
   getUserId(){

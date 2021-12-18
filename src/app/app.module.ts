@@ -28,6 +28,8 @@ import { CardComponent } from './component/projet/card/card.component';
 import { NousContacterComponent } from './component/nous-contacter/nous-contacter.component';
 import { ByeComponent } from './component/authentification/bye/bye.component';
 
+// import { AboutComponent } from './about/about.component';
+
 
 @NgModule({
   declarations: [
@@ -51,6 +53,8 @@ import { ByeComponent } from './component/authentification/bye/bye.component';
     EditUserComponent,
     NousContacterComponent,
     ByeComponent
+    // ByeComponent,
+    // AboutComponent
   ],
 
   imports: [
