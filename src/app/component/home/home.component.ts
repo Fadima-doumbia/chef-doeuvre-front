@@ -32,7 +32,6 @@ export class HomeComponent implements OnInit {
       ROLE_ENTREPRENEUR: 'Entrepreneur',
       ROLE_INVESTISSEUR: 'Investisseur',
       ROLE_ADMIN: 'Admin',
-
     }
     return role[roleName];
   }

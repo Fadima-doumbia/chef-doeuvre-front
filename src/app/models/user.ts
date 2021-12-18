@@ -9,5 +9,4 @@ export class User{
   roles?: Array<Role>;
   projects?: Array<Projet>;
   presentation?: string;
-  number?: number;
  }

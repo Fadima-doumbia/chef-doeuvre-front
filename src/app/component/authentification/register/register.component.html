@@ -12,7 +12,6 @@
           formControlName="username"
         />
         <label for="floatingInput">Username</label>
-        <!-- <label for="floatingInput frmNameA" autocomplete="username">username</label> -->
       </div>
 
       <div class="form-floating">
@@ -45,43 +44,15 @@
         <label for="floatingInput">Présentation</label>
       </div>
 
-      <!-- <div class="form-floating">
-        <select aria-label="Default select example" class="form-control"
-                id="floatingInput role"formControlName="role">
-                  <option selected>Selectionnez votre profil</option>
-                  <option value="ROLE_INVESTISSEUR">Investisseur</option>
-                  <option value="ROLE_ENTREPRENEUR">Entrepreneur</option>/>
-        <label for="floatingInput presentation" autocomplete="presentation">presentation</label>
-      </div> -->
-
-      <!-- <div class="form-floating">
-        <input
-          type="tel"
-          class="form-control"
-          id="floatingInput number"
-          placeholder=""
-          autocomplete="number"
-          formControlName="number"
-        />
-        <label for="floatingInput number">Telephone</label>
-      </div> -->
-
       <div class="form-floating">
         <select aria-label="Default select example" class="form-control"
                 id="floatingInput role"formControlName="role">
                   <option selected>Selectionnez votre profil</option>
-                  <option value="ROLE_USER">Investisseur</option>
-                  <option value="ROLE_MODERATOR">Entrepreneur</option>
+                  <option value="ROLE_INVESTISSEUR">Investisseur</option>
+                  <option value="ROLE_ENTREPRENEUR">Entrepreneur</option>
                 </select>
                 <label for="floatingInput role">Role</label>
       </div>
-
-      <!-- <div class="form-group">
-        <label class="post-image">Image</label>
-        <input type="file" name="fileImage" class="form-control" placeholder="Title" accept="image/png, image/jpeg"
-          (change)="onSelectFile($event)">
-        <img [src]="imgURL" alt="" height="200" *ngIf="imgURL">
-      </div> -->
 
       <div class="form-floating">
         <input

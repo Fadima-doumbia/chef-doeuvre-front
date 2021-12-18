@@ -64,15 +64,6 @@ export class AuthService {
   }
 
   // ***************************************************************************************************************************
-  // getToken(){
-  //   const token =localStorage.getItem('TOKEN_APPLI')
-  //   console.log(token)
-  //   if(token){
-  //     return token;
-  //   }
-  // }
-
-  // ***************************************************************************************************************************
   getUserId(){
     const helper = new JwtHelperService;
     const decodedToken = helper.decodeToken(this.getToken());
