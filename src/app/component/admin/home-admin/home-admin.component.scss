@@ -4,7 +4,7 @@
 }
 
 .nouveau-projet {
-    border: 1px solid #f27e63;
+    border: none;
     color: #3c5aa6;
     text-align: center;
     padding-bottom: 1rem;
@@ -13,11 +13,13 @@
     max-width: 200px;
     margin: 1rem;
     &:hover{
-      background-color: #979690;
+      background-color: rgb(238, 234, 234);
     }
 
     .buttonAdd{
       color: #3c5aa6;
+      background-color: rgb(238, 234, 234);
+
       &:hover{
         background-color: #f27e63;
       }
@@ -30,8 +32,12 @@
 body {
   font-family: "Open Sans", sans-serif;
   line-height: 1.25;
+
 }
 
+h3{
+  color: #3c5aa6;
+}
 table {
   border: 1px solid #ccc;
   border-collapse: collapse;
@@ -39,6 +45,7 @@ table {
   padding: 0;
   width: 100%;
   table-layout: fixed;
+  color: #3c5aa6;
 }
 
 table caption {
@@ -70,12 +77,14 @@ table .display{
 .buttons{
   display: flex;
   justify-content: space-around;
+
   .history{
     padding: 10px;
 
     button{
+      background-color: rgb(238, 234, 234);
       color: #3c5aa6;
-      border: #f27e63 1px solid;
+      border: none;
       height: auto;
       width: 80px;
       padding: 5px;

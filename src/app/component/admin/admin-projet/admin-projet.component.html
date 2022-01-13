@@ -2,7 +2,7 @@
   <!-- ********************************************************************************************************* -->
   <div class="container-fluid searchbar">
     <form class="d-flex SEARCH" (ngSubmit)="onSubmit()" [formGroup]="searchForm">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" formControlName="name">
       <button class="btn btn-outline-success" type="submit">
         <i class="fas fa-search"></i>
       </button>
@@ -17,7 +17,6 @@
       </div>
       <hr>
       <div class="content">
-        <h4>Entrepreneur: <span>{{ projet.entrepreneur }}</span></h4>
         <h4>Date de Début: <span>{{ projet.dateD }}</span></h4>
         <h4>Besoin: <span>{{ projet.besoin }}</span></h4>
         <h4>Description: <span>{{  projet.description }}</span></h4>
@@ -28,14 +27,11 @@
       </div>
     </div>
   </div>
-  <p class="float-end"><a href="#" (click)="toBack($event)">Back to top</a></p>
+  <!-- <p class="float-end"><a href="#" (click)="toBack($event)">Back to top</a></p> -->
 </div>
 
 <div class="buttons" id="buttonss">
-<<<<<<< HEAD
   <p class=""><a href="#" (click)="toBack($event)">Back to top</a></p>
-=======
->>>>>>> 743c4e52ec9d5be15dfd80096675bf7401f28070
   <button class="button" routerLink="/home-admin" routerLinkActive="active">Home</button>
   <button class="button" routerLink="/admin-user" routerLinkActive="active">User</button>
 </div>

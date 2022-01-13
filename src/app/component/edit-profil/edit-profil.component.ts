@@ -19,16 +19,7 @@ export class EditProfilComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private route: ActivatedRoute
-  ) { }
-
-  userForm = new FormGroup({
-    id : new FormControl(''),
-    username : new FormControl(''),
-    email : new FormControl(''),
-    presentation : new FormControl('')
-  })
-
-  ngOnInit(): void {
+  ) {
     const id:any = this.authService.getUserIdToken();
     this.userService.getById(id).subscribe(
       (user: User) => {
@@ -38,13 +29,22 @@ export class EditProfilComponent implements OnInit {
     )
   }
 
+  userForm = new FormGroup({
+    id : new FormControl(''),
+    username : new FormControl(''),
+    email : new FormControl(''),
+    presentation : new FormControl('')
+  })
+
+  ngOnInit(): void {  }
+
   updateUser() {
     const formValues = this.userForm?.value;
     console.log(formValues);
     this.userService.updateUser(formValues).subscribe(
       (user: User) => {
         console.log(user);
-        this.router.navigate(['/home']);
+        this.router.navigate(['/profil']);
         console.log("update profil reussie");
       }
     )

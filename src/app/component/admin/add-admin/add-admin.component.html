@@ -1,6 +1,6 @@
-<!-- <div class="login-form text-center">
+<div class="login-form text-center">
   <main class="form-signin">
-    <form (ngSubmit)="onSubmit()" [formGroup]="adminForm">
+    <form (ngSubmit)="onSubmit()" formGroup="adminFrom">
       <h1>Créer ton compte !</h1>
 
       <div class="form-floating">
@@ -17,12 +17,7 @@
       <div class="form-floating">
         <input
           type="email"
-          [ngClass]="{
-            'is-invalid':
-              (registerForm.get('email')?.dirty ||
-                registerForm.get('email')?.touched) &&
-              registerForm.get('email')?.invalid
-          }"
+
           class="form-control"
           id="floatingInput"
           placeholder=""
@@ -55,12 +50,7 @@
         <input
           type="password"
           class="form-control"
-          [ngClass]="{
-            'is-invalid':
-              (registerForm.get('password')?.dirty ||
-                registerForm.get('password')?.touched) &&
-              registerForm.get('password')?.invalid
-          }"
+
           id="floatingInput"
           placeholder=""
           formControlName="password"
@@ -75,6 +65,82 @@
       >
         Création
       </button>
+    </form>
+  </main>
+</div>
+<!-- <div class="login-form text-center">
+  <main class="form-signin">
+    <form (ngSubmit)="onSubmit()">
+      <h1>Nouveau Admin</h1>
+      <div class="form-floating">
+        <input
+          type="text"
+          class="form-control"
+          id="floatingInput"
+          placeholder=""
+          formControlName="username"
+        />
+        <label for="floatingInput">Pseudo</label>
+      </div>
+      <div class="form-floating">
+        <input
+          type="email"
+          class="form-control"
+          id="floatingInput"
+          placeholder=""
+          formControlName="email"
+        />
+        <label for="floatingInput">Adresse email</label>
+      </div>
+      <div class="form-floating">
+        <input
+          type="text"
+          class="form-control"
+          id="floatingInput"
+          placeholder=""
+          formControlName="presentation"
+        />
+        <label for="floatingInput">presentation</label>
+      </div>
+      <div class="form-floating">
+        <input
+          type="password"
+          class="form-control"
+
+          id="floatingInput"
+          placeholder=""
+          formControlName="password"
+        />
+
+        <label for="floatingInput">Mot de passe</label>
+      </div>
+      <div class="form-floating checkboxs">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="admin" id="flexCheckDefault">
+          <label class="form-check-label" for="flexCheckDefault">
+            Admin
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="entrepreneur" id="flexCheckChecked" checked>
+          <label class="form-check-label" for="flexCheckChecked">
+            Entrepreneur
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="moderateur" id="flexCheckChecked" checked>
+          <label class="form-check-label" for="flexCheckChecked">
+            Investisseur
+          </label>
+        </div>
+      </div>
+      <div class="buttons">
+        <button class="bouton"
+        type="submit"
+        [disabled]="adminForm.invalid">Création</button>
+        <button class="bouton"
+                type="submit" onclick="history.back(-1)">Annuler</button>
+      </div>
     </form>
   </main>
 </div> -->

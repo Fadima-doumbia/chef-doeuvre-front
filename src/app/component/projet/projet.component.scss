@@ -14,13 +14,14 @@
     // border: salmon 1px solid;
     border-radius: 50%;
     color: #3c5aa6;
-    background-color: #979690;
+    background-color: #ca8179;
     height: 50px;
     width: 50px;
+    border: none;
     &:hover{
       background-color: #979690;
-      color: salmon;
-      border: 1px solid #3c5aa6;
+      color: rgb(223, 223, 223) .9;
+      // border: 1px solid #3c5aa6;
     }
   }
 }

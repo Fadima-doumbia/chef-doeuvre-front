@@ -1,5 +1,6 @@
 .list-projects{
-  border: 1px solid #f27e63;
+  // border: 1px solid #f27e63;
+  background-color: rgb(238, 234, 234);
   margin: 1rem 0;
   color: #3c5aa6;
   border-radius: 10px;
@@ -8,11 +9,15 @@
     margin: 1rem;
     display: flex;
     justify-content: space-around;
+    // background-color: salmon;
     .button{
       border-radius: 5px;
       padding: 5px;
       color: #3c5aa6;
-      border: #f27e63 1px solid;
+      margin: 1rem;
+      background-color: lightsteelblue;
+
+      border: none;
       &:hover{
         background-color: #979690;
         color: #f27e63;

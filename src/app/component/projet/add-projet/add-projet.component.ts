@@ -49,6 +49,7 @@ export class AddProjetComponent implements OnInit {
     console.log(formValues);
     this.projetService.addProject(formValues).subscribe(
       (resp: any) => {
+        console.log(resp)
         console.log('reussit');
         this.router.navigate(['/projet']);
       },

@@ -11,16 +11,21 @@ import { AuthService } from '../../../services/auth.service';
 export class LoginComponent implements OnInit {
   loginForm = new FormGroup({
     username: new FormControl('user'),
-    password: new FormControl('user1234', [
+    password: new FormControl('User123@', [
       Validators.required,
       Validators.minLength(4),
     ])
   });
+
+
   constructor(
     private authService: AuthService,
     private router : Router
   ) { }
-  ngOnInit(): void {}
+
+  ngOnInit(): void {
+  }
+
   onSubmit() {
     // console.log(form.value);
     this.authService.login(this.loginForm.value).subscribe(
@@ -31,6 +36,31 @@ export class LoginComponent implements OnInit {
       error => {
         console.log(error);
       }
+
     )
   }
+  // loginForm = new FormGroup({
+  //   username: new FormControl('user'),
+  //   password: new FormControl('user1234', [
+  //     Validators.required,
+  //     Validators.minLength(4),
+  //   ])
+  // });
+  // constructor(
+  //   private authService: AuthService,
+  //   private router : Router
+  // ) { }
+  // ngOnInit(): void {}
+  // onSubmit() {
+  //   // console.log(form.value);
+  //   this.authService.login(this.loginForm.value).subscribe(
+  //     (resp: any) => {
+  //       console.log("Connection succeed", resp);
+  //       this.router.navigate(['/']);
+  //     },
+  //     error => {
+  //       console.log(error);
+  //     }
+  //   )
+  // }
 }

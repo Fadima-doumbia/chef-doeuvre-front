@@ -1,4 +1,4 @@
-<form class="d-flex SEARCH searchbar" (ngSubmit)="deleteUser" [formGroup]="searchForm">
+<form class="d-flex SEARCH" (ngSubmit)="onSubmit()" [formGroup]="searchForm">
   <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" formControlName="name">
   <button class="btn btn-outline-success" type="submit">
     <i class="fas fa-search"></i>
@@ -20,7 +20,6 @@
         </div>
       </div>
     </div>
-    <p class="float-end"><a href="#" (click)="toBack($event)">Back to top</a></p>
   </div>
 <!-- ***************************************************************************************************** -->
 <div class="buttons">

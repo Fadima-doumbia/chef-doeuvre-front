@@ -32,17 +32,35 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit() {
-    const formValues = this.registerForm?.value;
-    console.log(formValues);
-    this.authService.register(formValues).subscribe(
-      (resp: any) => {
-        console.log('reussit');
-        this.router.navigate(['/login']);
-      },
-      (error) => {
-        console.log('faild');
-        console.log(error);
-      }
-    );
-  }
+      const formValues = this.registerForm?.value;
+      console.log(formValues);
+      this.authService.register(formValues).subscribe(
+        (resp: any) => {
+          console.log('reussit');
+          this.router.navigate(['/login']);
+        },
+        (error) => {
+          console.log('faild');
+          console.log(error);
+        }
+      );
+    }
+  // constructor(private authService: AuthService, private router: Router) {}
+
+  // ngOnInit(): void {}
+
+  // onSubmit() {
+  //   const formValues = this.registerForm?.value;
+  //   console.log(formValues);
+  //   this.authService.register(formValues).subscribe(
+  //     (resp: any) => {
+  //       console.log('reussit');
+  //       this.router.navigate(['/login']);
+  //     },
+  //     (error) => {
+  //       console.log('faild');
+  //       console.log(error);
+  //     }
+  //   );
+  // }
 }

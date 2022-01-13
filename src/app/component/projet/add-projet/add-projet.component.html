@@ -70,11 +70,11 @@
 <form class="container" (ngSubmit)="onSubmit()" [formGroup]="projetForm">
   <!-- ******************************entete projet******************************************************* -->
   <div class="mb-3 row">
-    <label for="inputPassword" class="col-sm-2 col-form-label">Projet:</label>
+    <label for="inputPassword" class="col-sm-2 col-form-label" id="texte">Projet:</label>
     <div class="col-sm-3">
       <input type="text" class="form-control" id="inputText" formControlName="name">
     </div>
-    <label for="inputText" class="col-sm-2 col-form-label">Date:</label>
+    <label for="inputText" class="col-sm-2 col-form-label" id="texte">Date:</label>
     <div class="col-sm-3">
       <input type="date" class="form-control" id="inputText"  formControlName="dateD">
     </div>
@@ -86,13 +86,13 @@
       formControlName="description">
       hello
     </textarea>
-    <label for="floatingTextarea2">Présentation</label>
+    <label for="floatingTextarea2" class="texte">Présentation</label>
   </div>
   <div class="form-floating">
     <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" formControlName="besoin">
       hello
     </textarea>
-    <label for="floatingTextarea2">Besoin</label>
+    <label for="floatingTextarea2" class="texte">Besoin</label>
   </div>
   <!-- ******************************Ajouter un nouveau projet**************************************************** -->
   <div class="buttons">

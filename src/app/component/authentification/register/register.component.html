@@ -1,6 +1,101 @@
 <div class="login-form text-center">
   <main class="form-signin">
     <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
+      <h1>Créer ton compte !</h1>
+
+      <div class="form-floating">
+        <input
+          type="text"
+          class="form-control"
+          id="floatingInput"
+          placeholder=""
+          formControlName="username"
+        />
+        <label for="floatingInput">username</label>
+      </div>
+
+      <div class="form-floating">
+        <input
+          type="email"
+          [ngClass]="{
+            'is-invalid':
+              (registerForm.get('email')?.dirty ||
+                registerForm.get('email')?.touched) &&
+              registerForm.get('email')?.invalid
+          }"
+          class="form-control"
+          id="floatingInput"
+          placeholder=""
+          formControlName="email"
+        />
+        <label for="floatingInput">Adresse email</label>
+      </div>
+      <div class="form-floating">
+        <input
+          type="text"
+          class="form-control"
+          id="floatingInput"
+          placeholder="Présentation"
+          formControlName="presentation"
+        />
+        <label for="floatingInput">Présentation</label>
+      </div>
+      <div class="form-floating">
+                <select aria-label="Default select example" class="form-control"
+                id="floatingInput"formControlName="role">
+                  <option selected>Selectionnez votre profil</option>
+                  <!-- <option value="moderator">Moderator</option>
+                  <option value="moderator">Admin</option> -->
+                  <option value="investisseur">investisseur</option>
+                  <option value="entrepreneur">Entrepreneur</option>
+                </select>
+                <label for="floatingInput">Role</label>
+      </div>
+
+      <div class="form-floating">
+        <input
+          type="password"
+          class="form-control"
+          [ngClass]="{
+            'is-invalid':
+              (registerForm.get('password')?.dirty ||
+                registerForm.get('password')?.touched) &&
+              registerForm.get('password')?.invalid
+          }"
+          id="floatingInput"
+          placeholder=""
+          formControlName="password"
+        />
+        <label for="floatingInput">Mot de passe</label>
+      </div>
+
+      <button
+        class="w-100 btn btn-lg btn-primary"
+        type="submit"
+        [disabled]="registerForm.invalid"
+      >
+        Création
+      </button>
+    </form>
+    <div>
+      <hr>
+      <p>Dejà inscrit ?
+        <span>
+          <a href="http://" routerLink="/login" routerLinkActive="active">
+            Connectez-vous
+          </a>
+        </span>
+      </p>
+    </div>
+  </main>
+</div>
+
+
+
+
+<!-- <div class="login-form text-center">
+  <main class="form-signin">
+    <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
       <h1>Créez votre compte !</h1>
 
       <div class="form-floating">
@@ -50,6 +145,8 @@
                   <option selected>Selectionnez votre profil</option>
                   <option value="ROLE_INVESTISSEUR">Investisseur</option>
                   <option value="ROLE_ENTREPRENEUR">Entrepreneur</option>
+                  <option value="investisseur">Investisseur</option>
+                  <option value="entrepreneur">Entrepreneur</option>
                 </select>
                 <label for="floatingInput role">Role</label>
       </div>
@@ -102,4 +199,4 @@
       </p>
     </div>
   </main>
-</div>
+</div> -->

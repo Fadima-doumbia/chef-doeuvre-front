@@ -9,16 +9,21 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./add-admin.component.scss']
 })
 export class AddAdminComponent implements OnInit {
+
   adminForm = new FormGroup({
-    email: new FormControl(''),
-    username: new FormControl(''),
-    presentation: new FormControl(''),
+    email: new FormControl('admin@mail'),
+    username: new FormControl('admin'),
+    presentation: new FormControl('presentation'),
     role : new FormControl('', Validators.required),
-    password: new FormControl('', [
+    password: new FormControl('User123@', [
       Validators.required,
-      Validators.minLength(4),
+      Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)
     ])
   });
+
+  get password(){
+    return this.adminForm.get("password");
+  }
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -27,15 +32,50 @@ export class AddAdminComponent implements OnInit {
   onSubmit() {
     const formValues = this.adminForm?.value;
     console.log(formValues);
-    this.authService.newAdmin(formValues).subscribe(
-      (resp: any) => {
-        console.log('reussit');
-        // this.router.navigate(['/login']);
-      },
-      (error) => {
-        console.log('faild');
-        console.log(error);
-      }
-    );
-  }
+    this.authService.register(formValues).subscribe(
+        (resp: any) => {
+          console.log(resp, 'reussit');
+          this.router.navigate(['/login']);
+        },
+        (error) => {
+          console.log('faild');
+          console.log(error);
+        }
+      );
+    }
+
+
+//   adminForm = new FormGroup({
+//     email: new FormControl('admin@mail'),
+//     username: new FormControl('admin'),
+//     presentation: new FormControl('presentation'),
+//     role : new FormControl('', Validators.required),
+//     password: new FormControl('User123@', [
+//       Validators.required,
+//       Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)
+//     ])
+//   });
+
+//   get password(){
+//     return this.adminForm.get("password");
+//   }
+
+//   constructor(private authService: AuthService, private router: Router) {}
+
+//   ngOnInit(): void {}
+
+// onSubmit() {
+//     const formValues = this.adminForm?.value;
+//     console.log(formValues);
+//     this.authService.register(formValues).subscribe(
+//       (resp: any) => {
+//         console.log('reussit');
+//         this.router.navigate(['/login']);
+//       },
+//       (error) => {
+//         console.log('faild');
+//         console.log(error);
+//       }
+//     );
+//   }
 }
